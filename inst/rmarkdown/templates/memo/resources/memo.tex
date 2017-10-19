@@ -1,0 +1,387 @@
+\documentclass[$if(fontsize)$$fontsize$$else$11pt,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+$if(fontfamily)$
+\usepackage{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
+$if(linestretch)$
+\usepackage{setspace}
+\setstretch{$linestretch$}
+$endif$
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+$if(euro)$
+  \usepackage{eurosym}
+$endif$
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+$if(mainfont)$
+    \setmainfont{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Mapping=tex-ansi]{$monofont$}
+$endif$
+$if(mathfont)$
+    \setmathfont(Digits,Latin,Greek){$mathfont$}
+$endif$
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$else$
+\usepackage[top=0.5in, bottom=.4in, left = 1in, right=1in, includeheadfoot]{geometry}
+$endif$
+$if(lang)$
+\ifxetex
+  \usepackage{polyglossia}
+  \setmainlanguage{$mainlang$}
+\else
+  \usepackage[shorthands=off,$lang$]{babel}
+\fi
+$endif$
+$if(natbib)$
+\usepackage{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage{biblatex}
+$if(biblio-files)$
+\bibliography{$biblio-files$}
+$endif$
+$endif$
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+\VerbatimFootnotes
+$endif$
+\usepackage{longtable,booktabs}
+$if(graphics)$
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={$author-meta$},
+            pdftitle={$title-meta$},
+            colorlinks=true,
+            citecolor=$if(citecolor)$$citecolor$$else$green$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$blue$endif$,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+$if(numbersections)$
+\setcounter{secnumdepth}{5}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+$if(title)$
+  \title{$title$}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+$else$
+  \title{}
+  \pretitle{\vspace{\droptitle}}
+  \posttitle{}
+$endif$
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
+$if(author)$
+  \author{$for(author)$$author$$sep$ \\ $endfor$}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+$else$
+  \author{}
+  \preauthor{}\postauthor{}
+$endif$
+$if(date)$
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{$date$}
+$else$
+  \date{}
+  \predate{}\postdate{}
+$endif$
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+%% document formatting
+\usepackage[table]{xcolor} % colors for tables and text
+\usepackage{ragged2e} % justifying text
+\usepackage{setspace} % spacing commands, automatically makes captions single-spaced
+  \setstretch{1.2} \frenchspacing
+\usepackage{lastpage} % access number of last page for numbering in margin
+\usepackage{pdflscape} % for page rotation
+\usepackage{tabularx,tabulary}
+\usepackage{tabu}
+
+%% fonts setup
+
+\usepackage{gensymb} %degree symbol
+\usepackage{libertine} %load Linux Libertine so no need for installation
+\usepackage{unicode-math}
+\usepackage{float} % used to fix floating objects to a specific spot
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{threeparttable}
+\usepackage[hang]{footmisc}
+
+\setmathfont{Asana-Math.otf}
+
+
+%% tables and figures
+
+% include section number in figure and table numbers, renew in each section
+\usepackage{chngcntr}
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+
+\usepackage{makecell} % allow linebreaks in table cells using \thead (headers) and \makecell
+\robustify\tnote
+
+% table/figure captions (titles and legends)
+\usepackage{caption}
+\DeclareCaptionFormat{llap}{\llap{#1#2}#3\par} % table / figure number in left margin
+\DeclareCaptionLabelSeparator{spc}{\hspace{.075 in}} % space between table number and caption
+\captionsetup{font={color=blue, sf}, singlelinecheck=off, margin= 15pt, skip=4pt, size=small, labelfont={sc, sf}, format=llap, labelsep=spc,singlelinecheck=no} % same font as headers
+
+
+\makeatletter
+\let\runtitle\@title
+$if(sdate)$
+\newcommand{\rundate}{\hspace{.025 in} \cdot \hspace{.025 in} $sdate$}
+$else$
+\newcommand{\rundate}{}
+$endif$
+\makeatother
+
+ \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhf{}
+  % \rhead{ \nouppercase{\rightmark}  \hspace{.1 in} \cdot \hspace{.1 in} \thepage}
+  % \hspace{.05 in} of \hspace{.05 in} \pageref{LastPage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0.5pt}
+   \rhead{ \footnotesize \nouppercase{\sc \runtitle} \hspace{.025 in} \cdot \hspace{.055 in} page \thepage \hspace{.018 in} of \hspace{.0015 in}  \pageref*{LastPage}}
+
+   $if(confidential)$
+   \lhead{\textcolor{red}{\it Confidential; do not circulate}}
+   $endif$
+
+   \cfoot{\footnotesize
+   $if(company)$
+  $company$ \hspace{.025 in} \cdot \hspace{.05 in}
+  $endif$
+  $if(address)$
+  $address$ \hspace{.025 in} \cdot \hspace{.05 in}
+  $endif$
+  $if(phone)$
+  $phone$ \hspace{.025 in} \cdot \hspace{.05 in}
+  $endif$
+  $if(email)$
+  $email$
+  $endif$
+   }
+
+
+
+\usepackage{titlesec}
+
+\newfontfamily\headingfont[]{LinBiolinum_R.otf}
+\titleformat*{\section}{\sc \large \color[rgb]{0,0,0} \headingfont}
+\titleformat*{\subsection}{\large \headingfont}
+\titleformat*{\subsubsection}{\normalsize \headingfont}
+\renewcommand{\maketitlehooka}{\headingfont}
+
+\titlespacing\section{0pt}{8pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{6pt plus 2pt minus 2pt}{-2pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{2pt plus 2pt minus 2pt}{-3pt plus 2pt minus 2pt}
+
+
+% set up title page
+\pretitle{
+$if(logo)$
+\begin{flushright}
+\includegraphics[width=7cm, keepaspectratio]{$logo$}
+\end{flushright}
+$endif$
+\vskip 5em \begin{flushleft}\LARGE}
+\posttitle{\end{flushleft}}
+
+\preauthor{\par\begin{flushleft}\large\vskip -.5em}
+\postauthor{\end{flushleft}}
+
+\predate{\par\begin{flushleft}\large\vskip -1em}
+\postdate{\end{flushleft}  }
+
+\makeatletter
+\def\@seccntformat#1{\llap{\csname the#1\endcsname \hspace{.075 in}}}
+\makeatother
+
+% suppress chapter in section numbering
+\renewcommand*\thesection{\arabic{section}}
+
+% spacing of bulleted lists
+\usepackage{enumitem} %control spacing of enumerated items
+\setlist[itemize]{noitemsep, topsep=0pt}
+
+%% remove 'abstract' title, justify text
+\renewcommand{\abstractname}{\headingfont \large}
+\renewenvironment{abstract} {\abstractname \justifying \rm \normalsize }
+
+\usepackage{tikz}
+
+\usepackage[detect-all]{siunitx}
+
+\sisetup{table-format = 3.3, input-symbols = >()<, tight-spacing = true, table-space-text-pre = \(<\)} % table-align-text-post = false,
+
+
+\newlength\tbspace
+\setlength\tbspace{.25in}
+
+% units.
+\usepackage{units}
+
+$if(highlighting-macros)$
+%% change fontsize of R code
+\let\oldShaded\Shaded
+\let\endoldShaded\endShaded
+\renewenvironment{Shaded}{\footnotesize\oldShaded}{\endoldShaded}
+
+%% change fontsize of output
+\let\oldverbatim\verbatim
+\let\endoldverbatim\endverbatim
+\renewenvironment{verbatim}{\footnotesize\oldverbatim}{\endoldverbatim}
+$endif$
+
+\def\tightlist{}
+
+
+\begin{document}
+
+\maketitle
+
+$if(abstract)$
+\begin{abstract}
+$abstract$ \clearpage
+\end{abstract}
+$endif$
+
+$if(toc)$
+{
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+}
+$endif$
+
+$if(lot)$
+\listoftables
+$endif$
+
+$if(lof)$
+\listoffigures
+$endif$
+
+$body$
+
+$if(natbib)$
+$if(biblio-files)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\bibliography{$biblio-files$}
+
+$endif$
+$endif$
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}

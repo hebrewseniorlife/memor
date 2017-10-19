@@ -1,0 +1,5 @@
+name: Pretty Memo
+description: >
+  One beautifully designed rmarkdown LaTeX template that supports
+  company logo, contact info and more.
+create_dir: false

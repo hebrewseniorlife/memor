@@ -1,0 +1,34 @@
+---
+title: "Handout (lite)"
+author: 
+- Your Name
+date: "`r Sys.Date()`"
+documentclass: article
+output: 
+  ifar.reports::handout_lite:
+    keep_tex: true
+company: Interventional Studies in Aging Center
+address: 1200 Centre St. Boston, MA, USA 02131
+phone: 617.971.5386
+email: stats@hsl.harvard.edu
+confidential: true
+toc: false
+lot: false
+lof: false
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+You may consider the following options in the YAML section:
+
+```{yaml}
+company, address, phone, email: Other than order, there are actually no difference 
+  among these options
+```
+
+```{r}
+summary(mtcars)
+```
