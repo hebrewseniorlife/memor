@@ -11,6 +11,6 @@ hsl_logo <- function(path = NULL) {
   logo_file <- system.file("rmarkdown/templates/handout_lite/resources",
                            file_name,
                            package = "ifar.reports")
-  file.copy(from = logo_file, to = paste0("./", path))
+  file.copy(from = logo_file, to = path)
   return(file_name)
 }
