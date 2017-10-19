@@ -1,3 +1,19 @@
+#' Download any Logo (url or local) to current working directory
+#'
+#' @description This function is a generic function that will download any image
+#'  files to current working directory.
+#'
+#'  @param path File path or web links to an image file
+#'
+#'  @export
+get_logo <- function(path) {
+  wd_path <- getwd()
+
+}
+
+is_url
+
+
 #' HSL Logo
 #'
 #' @description Put the HSL logo file stored in this package in the local folder
@@ -14,3 +30,4 @@ hsl_logo <- function(path = NULL) {
   file.copy(from = logo_file, to = path)
   return(file_name)
 }
+
