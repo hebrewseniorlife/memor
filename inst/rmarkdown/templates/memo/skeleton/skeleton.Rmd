@@ -1,11 +1,11 @@
 ---
-title: "Handout (lite)"
+title: "Title"
 author: 
 - Your Name
 date: "`r Sys.Date()`"
 documentclass: article
 output: 
-  ifar.reports::handout_lite:
+  prettymemo::memo:
     keep_tex: true
 company: Interventional Studies in Aging Center
 address: 1200 Centre St. Boston, MA, USA 02131
@@ -17,18 +17,28 @@ lot: false
 lof: false
 ---
 
-```{r setup, include=FALSE}
+```{r setup}
 library(knitr)
+library(kableExtra)
+library(ggplot2)
+options(knitr.table.format = "latex")
 opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
-You may consider the following options in the YAML section:
-
-```{yaml}
-company, address, phone, email: Other than order, there are actually no difference 
-  among these options
-```
+# Section 1
+Here is a table
 
 ```{r}
-summary(mtcars)
+kable(mtcars[1:5, 1:5], booktabs = T, caption = "a table") %>%
+  kable_styling(latex_options = "HOLD_position")
+```
+
+\clearpage 
+
+# Section 2
+Here is a plot.
+
+```{r}
+ggplot(mtcars, aes(x = mpg, y = wt)) +
+  geom_point()
 ```

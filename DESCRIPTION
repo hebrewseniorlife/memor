@@ -3,7 +3,8 @@ Title: A beautifully designed rmarkdown LaTeX template
 Version: 0.0.0.9000
 Authors@R: c(
     person("Thomas", "Travison", email = "tgt@hsl.harvard.edu", role = "aut"),
-    person("Hao", "Zhu", email = "haozhu233@gmail.com", role = c("aut", "cre"))
+    person("Hao", "Zhu", email = "haozhu233@gmail.com", role = c("aut", "cre")),
+    person("Timothy", "Tsai", email = "TimothyTsai@hsl.harvard.edu", role = "aut")
     )
 Description: One beautifully designed rmarkdown LaTeX template that supports
     company logo, contact info and more. 
