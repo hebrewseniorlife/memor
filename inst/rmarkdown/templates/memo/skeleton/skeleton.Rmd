@@ -1,7 +1,8 @@
 ---
 title: "Title"
 author: 
-- Your Name
+- You Name
+- Second Author
 date: "`r Sys.Date()`"
 documentclass: article
 output: 
@@ -11,6 +12,7 @@ company: Interventional Studies in Aging Center
 address: 1200 Centre St. Boston, MA, USA 02131
 phone: 617.971.5386
 email: stats@hsl.harvard.edu
+logo: "`r prettymemo::hsl_logo()`"
 confidential: true
 toc: false
 lot: false
