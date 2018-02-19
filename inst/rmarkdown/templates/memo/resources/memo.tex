@@ -236,11 +236,9 @@ $endif$
  \usepackage{fancyhdr}
   \pagestyle{fancy}
   \fancyhf{}
-  % \rhead{ \nouppercase{\rightmark}  \hspace{.1 in} \cdot \hspace{.1 in} \thepage}
-  % \hspace{.05 in} of \hspace{.05 in} \pageref{LastPage}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0.5pt}
-   \rhead{ \footnotesize \nouppercase{\sc \runtitle} \hspace{.025 in} \cdot \hspace{.055 in} page \thepage \hspace{.018 in} of \hspace{.0015 in}  \pageref*{LastPage}}
+   \rhead{ \footnotesize \nouppercase{\sc $if(short_title)$$short_title$$else$\runtitle$endif$} \hspace{.025 in} \cdot \hspace{.055 in} page \thepage \hspace{.018 in} of \hspace{.0015 in}  \pageref*{LastPage}}
 
    $if(confidential)$
    \lhead{\textcolor{red}{\it Confidential; do not circulate}}
@@ -261,6 +259,25 @@ $endif$
   $endif$
    }
 
+\fancypagestyle{firststyle}
+{
+   \fancyhf{}
+   \cfoot{\footnotesize
+   $if(company)$
+  $company$ \hspace{.025 in} \cdot \hspace{.05 in}
+  $endif$
+  $if(address)$
+  $address$ \hspace{.025 in} \cdot \hspace{.05 in}
+  $endif$
+  $if(phone)$
+  $phone$ \hspace{.025 in} \cdot \hspace{.05 in}
+  $endif$
+  $if(email)$
+  $email$
+  $endif$
+   }
+}
+
 
 
 \usepackage{titlesec}
@@ -280,10 +297,11 @@ $endif$
 \pretitle{
 $if(logo)$
 \begin{flushright}
-\includegraphics[width=7cm, keepaspectratio]{$logo$}
+\includegraphics[height=1.2cm, keepaspectratio]{$logo$}
 \end{flushright}
 $endif$
 \vskip 5em \begin{flushleft}\LARGE}
+
 \posttitle{\end{flushleft}}
 
 \preauthor{\par\begin{flushleft}\large\vskip -.5em}
@@ -338,6 +356,10 @@ $endif$
 \begin{document}
 
 \maketitle
+
+$if(footer_on_first_page)$
+\thispagestyle{firststyle}
+$endif$
 
 $if(abstract)$
 \begin{abstract}
