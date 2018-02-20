@@ -297,7 +297,7 @@ $endif$
 \pretitle{
 $if(logo)$
 \begin{flushright}
-\includegraphics[height=1.2cm, keepaspectratio]{$logo$}
+\includegraphics[height=$if(logo_height)$$logo_height$$else$1.2cm$endif$, keepaspectratio]{$logo$}
 \end{flushright}
 $endif$
 \vskip 5em \begin{flushleft}\LARGE}

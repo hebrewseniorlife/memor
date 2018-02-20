@@ -37,4 +37,8 @@ abstract: "Here is the abstract of this memo."
 ---
 ```
 
+## Logo
+The `logo` item here only needs the file path to your logo file, which can be a png, jpg, pdf, etc. So if you have your company logo file `logo.png` in your document folder (and you are rendering from document location), you can just say `logo: "logo.png"` in your `yaml` section. 
+
+If you are not satisfied with the size of your logo, you can adjust it through the `logo_height` option and the width will be automatically adjusted. For example, `logo_height: 2cm`.
 

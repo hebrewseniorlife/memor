@@ -1,0 +1,12 @@
+navbar:
+  title: "prettymemo"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Reference"
+      href: "reference/"
+    - text: "Sample Document"
+      href: "skeleton.pdf"
+  right:
+    - icon: fa-github
+      href: https://github.com/hebrewseniorlife/prettymemo
