@@ -1,7 +1,7 @@
 # prettymemo
 `prettymemo` is a R package containing a well-defined rmarkdown PDF template with some modern design elements. It comes with easily-accessible features, such as company logo and company contact info as page footer.
 
-![first page of prettymemo](docs/firstpage.png)
+See the sample documentation [here](https://github.com/hebrewseniorlife/prettymemo/raw/master/docs/skeleton.pdf) or check out the documentation site at [https://hebrewseniorlife.github.io/prettymemo/](https://hebrewseniorlife.github.io/prettymemo/)
 
 # Install
 ```{r}
