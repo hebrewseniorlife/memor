@@ -1,5 +1,5 @@
-Package: prettymemo
-Title: A beautifully designed rmarkdown LaTeX template
+Package: curator
+Title: A beautifully designed rmarkdown LaTeX template with customizable logo.
 Version: 0.0.0.9000
 Authors@R: c(
     person("Thomas", "Travison", email = "tgt@hsl.harvard.edu", role = "aut"),
@@ -9,8 +9,8 @@ Authors@R: c(
 Description: One beautifully designed rmarkdown LaTeX template that supports
     company logo, contact info and more. 
 License: MIT
-URL: https://github.com/hebrewseniorlife/prettymemo
-BugReports: https://github.com/hebrewseniorlife/prettymemo/issues
+URL: https://github.com/hebrewseniorlife/curator
+BugReports: https://github.com/hebrewseniorlife/curator/issues
 Imports: 
     rmarkdown,
     knitr

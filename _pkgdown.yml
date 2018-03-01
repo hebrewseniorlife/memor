@@ -1,5 +1,5 @@
 navbar:
-  title: "prettymemo"
+  title: "curator"
   left:
     - text: "Home"
       href: index.html
@@ -9,4 +9,4 @@ navbar:
       href: "skeleton.pdf"
   right:
     - icon: fa-github
-      href: https://github.com/hebrewseniorlife/prettymemo
+      href: https://github.com/hebrewseniorlife/curator

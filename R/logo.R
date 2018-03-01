@@ -9,7 +9,7 @@ hsl_logo <- function() {
   current_dir <- knitr::opts_knit$get("output.dir")
   logo_file <- system.file("rmarkdown/templates/memo/resources",
                            logo_filename,
-                           package = "prettymemo")
+                           package = "curator")
   new_logo_file <- file.path(current_dir, logo_filename)
   file.copy(from = logo_file,
             to = new_logo_file, overwrite = T)

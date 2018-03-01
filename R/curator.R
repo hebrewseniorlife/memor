@@ -1,4 +1,4 @@
-#' Memo
+#' Curator Template
 #'
 #' @param toc logical value for table of contents. See ?rmarkdown::pdf_document
 #' for details
@@ -11,13 +11,15 @@
 #' @importFrom rmarkdown pdf_document
 #' @import knitr
 #' @export
-memo <- function(toc = TRUE, number_sections = TRUE,
+curator <- function(toc = TRUE, number_sections = TRUE,
                  latex_engine = "xelatex", ...) {
 
 
-  template <- system.file("rmarkdown/templates/memo/resources/memo.tex",
-                          package = "prettymemo")
-
+  template <- system.file("rmarkdown/templates/curator/resources/curator.tex",
+                          package = "curator")
+  # metadata <- rmarkdown::metadata
+  # metadata$test <- "aaa"
+  
   format <- rmarkdown::pdf_document(
     latex_engine = latex_engine,
     template = template,

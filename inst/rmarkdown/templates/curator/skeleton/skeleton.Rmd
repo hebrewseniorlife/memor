@@ -6,13 +6,12 @@ author:
 date: "`r Sys.Date()`"
 documentclass: article
 output: 
-  prettymemo::memo:
+  curator::curator:
     keep_tex: true
 company: Interventional Studies in Aging Center
 address: 1200 Centre St. Boston, MA, USA 02131
 phone: 617.971.5386
 email: stats@hsl.harvard.edu
-logo: "`r prettymemo::hsl_logo()`"
 short_title: "short title"
 footer_on_first_page: true
 confidential: true
