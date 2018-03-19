@@ -1,16 +1,16 @@
-Package: curator
+Package: memor
 Title: A beautifully designed rmarkdown LaTeX template with customizable logo.
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Thomas", "Travison", email = "tgt@hsl.harvard.edu", role = "aut"),
     person("Hao", "Zhu", email = "haozhu233@gmail.com", role = c("aut", "cre")),
+    person("Thomas", "Travison", email = "tgt@hsl.harvard.edu", role = "aut"),
     person("Timothy", "Tsai", email = "TimothyTsai@hsl.harvard.edu", role = "aut")
     )
 Description: One beautifully designed rmarkdown LaTeX template that supports
     company logo, contact info and more. 
 License: MIT
-URL: https://github.com/hebrewseniorlife/curator
-BugReports: https://github.com/hebrewseniorlife/curator/issues
+URL: https://github.com/hebrewseniorlife/memor
+BugReports: https://github.com/hebrewseniorlife/memor/issues
 Imports: 
     rmarkdown,
     knitr

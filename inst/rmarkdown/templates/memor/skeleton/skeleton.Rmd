@@ -6,18 +6,19 @@ author:
 date: "`r Sys.Date()`"
 documentclass: article
 output: 
-  curator::curator:
+  memor::memor:
     keep_tex: true
-company: Interventional Studies in Aging Center
-address: 1200 Centre St. Boston, MA, USA 02131
-phone: 617.971.5386
-email: stats@hsl.harvard.edu
-short_title: "short title"
-footer_on_first_page: true
-confidential: true
-toc: false
-lot: false
-lof: false
+    company: 
+      name: Your company's name
+      address: Your address
+      phone: 888.888.8888
+      email: your_email@email.com
+    short_title: "short title"
+    footer_on_first_page: true
+    confidential: true
+    toc: false
+    lot: false
+    lof: false
 ---
 
 ```{r setup}
