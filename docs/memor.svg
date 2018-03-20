@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="789px" height="793px" viewBox="0 0 789 793" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>memor 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Polygon" stroke="#0074B2" stroke-width="24" fill="#FFFFFF" points="394.5 14 725.754717 205.25 725.754717 587.75 394.5 779 63.2452831 587.75 63.2452831 205.25"></polygon>
+        <text id="memor" font-family="FZLTXHK--GBK1-0, Lantinghei SC" font-size="90" font-weight="300" fill="#000000">
+            <tspan x="105" y="286">memor</tspan>
+        </text>
+        <rect id="Rectangle" fill="#D8D8D8" x="105" y="398" width="153" height="33"></rect>
+        <rect id="Rectangle" fill="#D8D8D8" x="105" y="446" width="585" height="33"></rect>
+        <rect id="Rectangle" fill="#D8D8D8" x="105" y="491" width="585" height="33"></rect>
+        <rect id="Rectangle" fill="#D8D8D8" x="105" y="539" width="585" height="33"></rect>
+        <polygon id="Polygon-2" stroke="#0074B2" stroke-width="6" points="607.5 209 650.368257 233.75 650.368257 283.25 607.5 308 564.631743 283.25 564.631743 233.75"></polygon>
+        <text id="hebrewseniorlife/mem" transform="translate(531.000000, 671.000000) rotate(-30.000000) translate(-531.000000, -671.000000) " font-family="FZLTXHK--GBK1-0, Lantinghei SC" font-size="27" font-weight="300" fill="#0074B2">
+            <tspan x="375" y="680">hebrewseniorlife/memor</tspan>
+        </text>
+    </g>
+</svg>
