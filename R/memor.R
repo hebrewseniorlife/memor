@@ -52,16 +52,6 @@ memor <- function(use_profile = TRUE,
     }
   }
   
-  template <- system.file("rmarkdown/templates/memor/resources/memor.tex",
-                          package = "memor")
-  config <- rmarkdown::pdf_document(
-    latex_engine = latex_engine,
-    template = template,
-    number_sections = number_sections,
-    toc = toc,
-    ...
-  )
-  
   memor_args <- c()
   
   if (!is.null(logo)) {
@@ -72,7 +62,7 @@ memor <- function(use_profile = TRUE,
   if (!is.null(company)) {
     if (is.list(company) && length(company) > 1) {
       company <- paste(unlist(company), 
-                       collapse = "\\hspace{.025 in} \\cdot \\hspace{.05 in}")
+                       collapse = " \\hspace{.025 in} \\cdot \\hspace{.05 in} ")
     }
     memor_args <- c(memor_args, pandoc_variable_arg("company", company))
   }
@@ -98,9 +88,18 @@ memor <- function(use_profile = TRUE,
   if (lot) memor_args <- c(memor_args, pandoc_variable_arg("lot", "yes"))
   if (lof) memor_args <- c(memor_args, pandoc_variable_arg("lof", "yes"))
   
-  pre <- config$pre_processor
-  config$pre_processor <- function(...) {
-    c(if (is.function(pre)) pre(...), memor_args)
-  }
+  template <- system.file("rmarkdown/templates/memor/resources/memor.tex",
+                          package = "memor")
+  config <- rmarkdown::pdf_document(
+    latex_engine = latex_engine,
+    template = template,
+    number_sections = number_sections,
+    toc = toc,
+    ...
+  )
+  
+  pre_pandoc <- config$pandoc$args
+  config$pandoc$args <- c(pre_pandoc, memor_args)
+  
   return(config)
 }
