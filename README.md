@@ -1,44 +1,36 @@
-# prettymemo
-`prettymemo` is a R package containing a well-defined rmarkdown PDF template with some modern design elements. It comes with easily-accessible features, such as company logo and company contact info as page footer.
-
-See the sample documentation [here](https://github.com/hebrewseniorlife/prettymemo/raw/master/docs/skeleton.pdf) or check out the documentation site at [https://hebrewseniorlife.github.io/prettymemo/](https://hebrewseniorlife.github.io/prettymemo/)
+# memor
+`memor` is a beautifully designed rmarkdown LaTeX template with lots of customizable options. It provides useful features such as company/institution logo, contact info, watermark as so on. It also allow users to have a small yaml section in their rmarkdown by allowing them to save their preference in a profile file. 
 
 # Install
 ```{r}
-devtools::install_github("hebrewseniorlife/prettymemo")
+devtools::install_github("hebrewseniorlife/memor")
 ```
 
-# Features
-Here is a typical yaml section for a `prettydoc` document.
-
+# Get Started
+Here are the list of options that is available in `memor`. Similar with `rmarkdown`, you don't need to use all of them. Just pick the ones you need. 
 ```
----
-title: "Title"
-author: 
-- You Name
-- Second Author
-date: "`r Sys.Date()`"
-documentclass: article
 output: 
-  prettymemo::memo:
-    keep_tex: true
-company: Interventional Studies in Aging Center
-address: 1200 Centre St. Boston, MA, USA 02131
-phone: 617.971.5386
-email: stats@hsl.harvard.edu
-logo: "`r prettymemo::hsl_logo()`"
-short_title: "short title"
-footer_on_first_page: true
-confidential: true
-toc: false
-lot: false
-lof: false
-abstract: "Here is the abstract of this memo."
----
+  memor::memor:
+    use_profile: false
+    logo: "logo.png"
+    company: 
+      name: Your company's name
+      address: Your address
+      phone: 888.888.8888
+      email: your_email@email.com
+    short_title: short title
+    watermark: Top Secret
+    confidential: true
+    logo_height: 1.2cm
+    watermark_color: gray
+    footer_on_first_page: true
+    toc: false
+    lot: false
+    lof: false
+    number_sections: true
+    latex_engine: xelatex
 ```
 
-## Logo
-The `logo` item here only needs the file path to your logo file, which can be a png, jpg, pdf, etc. So if you have your company logo file `logo.png` in your document folder (and you are rendering from document location), you can just say `logo: "logo.png"` in your `yaml` section. 
+At the same time, it's encouraged to use a separated "profile" file to store all your personal/company info. Here, if you are using RStudio, you can use the "Edit memor profile" RStudio addin coming together with this package. This addin does nothing more than opening up the `~/memor-profile.yaml` file in your home directory (if this file doesn't exist, it will create one), where you can save your company's contact info and some common setup in your case. 
 
-If you are not satisfied with the size of your logo, you can adjust it through the `logo_height` option and the width will be automatically adjusted. For example, `logo_height: 2cm`.
-
+![RStudio Addin](https://raw.githubusercontent.com/hebrewseniorlife/memor/master/docs/addin.png)

@@ -1,17 +1,18 @@
 Package: memor
-Title: A beautifully designed rmarkdown LaTeX template with customizable logo.
+Title: A beautifully designed rmarkdown LaTeX template with lots of customizable options.
 Version: 0.0.0.9000
 Authors@R: c(
     person("Hao", "Zhu", email = "haozhu233@gmail.com", role = c("aut", "cre")),
     person("Thomas", "Travison", email = "tgt@hsl.harvard.edu", role = "aut"),
     person("Timothy", "Tsai", email = "TimothyTsai@hsl.harvard.edu", role = "aut")
     )
-Description: One beautifully designed rmarkdown LaTeX template that supports
-    company logo, contact info and more. 
+Description: A beautifully designed rmarkdown LaTeX template that supports
+    company logo, contact info, watermarks and more.
 License: MIT
 URL: https://github.com/hebrewseniorlife/memor
 BugReports: https://github.com/hebrewseniorlife/memor/issues
 Imports: 
+    yaml,
     rmarkdown,
     knitr
 Encoding: UTF-8

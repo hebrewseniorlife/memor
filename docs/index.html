@@ -5,11 +5,15 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A beautifully designed rmarkdown LaTeX template • prettymemo</title>
+<title>A beautifully designed rmarkdown LaTeX template with lots of customizable options. • memor</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><meta property="og:title" content="A beautifully designed rmarkdown LaTeX template with lots of customizable options.">
+<meta property="og:description" content="A beautifully designed rmarkdown LaTeX template that supports
+    company logo, contact info, watermarks and more.">
+<meta name="twitter:card" content="summary">
+<!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
@@ -24,7 +28,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">prettymemo</a>
+      <a class="navbar-brand" href="index.html">memor</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -40,7 +44,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/hebrewseniorlife/prettymemo">
+  <a href="https://github.com/hebrewseniorlife/memor">
     <span class="fa fa-github"></span>
      
   </a>
@@ -57,50 +61,42 @@
       </header><div class="row">
   <div class="contents col-md-9">
     
-<div id="prettymemo" class="section level1">
+<div id="memor" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#prettymemo" class="anchor"></a>prettymemo</h1></div>
-<p><code>prettymemo</code> is a R package containing a well-defined rmarkdown PDF template with some modern design elements. It comes with easily-accessible features, such as company logo and company contact info as page footer.</p>
-<p>See the sample documentation <a href="https://github.com/hebrewseniorlife/prettymemo/raw/master/docs/skeleton.pdf">here</a> or check out the documentation site at <a href="https://hebrewseniorlife.github.io/prettymemo/" class="uri">https://hebrewseniorlife.github.io/prettymemo/</a></p>
+<a href="#memor" class="anchor"></a>memor</h1></div>
+<p><code>memor</code> is a beautifully designed rmarkdown LaTeX template with lots of customizable options. It provides useful features such as company/institution logo, contact info, watermark as so on. It also allow users to have a small yaml section in their rmarkdown by allowing them to save their preference in a profile file.</p>
 </div>
 <div id="install" class="section level1">
 <h1 class="hasAnchor">
 <a href="#install" class="anchor"></a>Install</h1>
-<pre class="{r}"><code><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">devtools::install_github("hebrewseniorlife/prettymemo")</a></code></pre>
+<pre class="{r}"><code><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">devtools::install_github("hebrewseniorlife/memor")</a></code></pre>
 </div>
-<div id="features" class="section level1">
+<div id="get-started" class="section level1">
 <h1 class="hasAnchor">
-<a href="#features" class="anchor"></a>Features</h1>
-<p>Here is a typical yaml section for a <code>prettydoc</code> document.</p>
-<pre><code>---
-title: "Title"
-author: 
-- You Name
-- Second Author
-date: "`r Sys.Date()`"
-documentclass: article
-output: 
-  prettymemo::memo:
-    keep_tex: true
-company: Interventional Studies in Aging Center
-address: 1200 Centre St. Boston, MA, USA 02131
-phone: 617.971.5386
-email: stats@hsl.harvard.edu
-logo: "`r prettymemo::hsl_logo()`"
-short_title: "short title"
-footer_on_first_page: true
-confidential: true
-toc: false
-lot: false
-lof: false
-abstract: "Here is the abstract of this memo."
----</code></pre>
-<div id="logo" class="section level2">
-<h2 class="hasAnchor">
-<a href="#logo" class="anchor"></a>Logo</h2>
-<p>The <code>logo</code> item here only needs the file path to your logo file, which can be a png, jpg, pdf, etc. So if you have your company logo file <code>logo.png</code> in your document folder (and you are rendering from document location), you can just say <code>logo: "logo.png"</code> in your <code>yaml</code> section.</p>
-<p>If you are not satisfied with the size of your logo, you can adjust it through the <code>logo_height</code> option and the width will be automatically adjusted. For example, <code>logo_height: 2cm</code>.</p>
-</div>
+<a href="#get-started" class="anchor"></a>Get Started</h1>
+<p>Here are the list of options that is available in <code>memor</code>. Similar with <code>rmarkdown</code>, you don’t need to use all of them. Just pick the ones you need.</p>
+<pre><code>output: 
+  memor::memor:
+    use_profile: false
+    logo: "logo.png"
+    company: 
+      name: Your company's name
+      address: Your address
+      phone: 888.888.8888
+      email: your_email@email.com
+    short_title: short title
+    watermark: Top Secret
+    confidential: true
+    logo_height: 1.2cm
+    watermark_color: gray
+    footer_on_first_page: true
+    toc: false
+    lot: false
+    lof: false
+    number_sections: true
+    latex_engine: xelatex</code></pre>
+<p>At the same time, it’s encouraged to use a separated “profile” file to store all your personal/company info. Here, if you are using RStudio, you can use the “Edit memor profile” RStudio addin coming together with this package. This addin does nothing more than opening up the <code>~/memor-profile.yaml</code> file in your home directory (if this file doesn’t exist, it will create one), where you can save your company’s contact info and some common setup in your case.</p>
+<p><img src="https://raw.githubusercontent.com/hebrewseniorlife/memor/master/docs/addin.png" alt="RStudio Addin"></p>
 </div>
 
   </div>
@@ -108,25 +104,25 @@ abstract: "Here is the abstract of this memo."
   <div class="col-md-3" id="sidebar">
     <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/hebrewseniorlife/prettymemo">https://​github.com/​hebrewseniorlife/​prettymemo</a>
+<li>Browse source code at <br><a href="https://github.com/hebrewseniorlife/memor">https://​github.com/​hebrewseniorlife/​memor</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/hebrewseniorlife/prettymemo/issues">https://​github.com/​hebrewseniorlife/​prettymemo/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/hebrewseniorlife/memor/issues">https://​github.com/​hebrewseniorlife/​memor/​issues</a>
 </li>
 </ul>
 <h2>License</h2>
 <p><a href="https://opensource.org/licenses/mit-license.php">MIT</a></p>
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Thomas Travison <br><small class="roles"> Author </small> </li>
-<li>Hao Zhu <br><small class="roles"> Author, maintainer </small> </li>
-<li>Timothy Tsai <br><small class="roles"> Author </small> </li>
+<li>Hao Zhu <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Thomas Travison <br><small class="roles"> Author </small>  </li>
+<li>Timothy Tsai <br><small class="roles"> Author </small>  </li>
 </ul>
 </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Thomas Travison, Hao Zhu, Timothy Tsai.</p>
+  <p>Developed by Hao Zhu, Thomas Travison, Timothy Tsai.</p>
 </div>
 
 <div class="pkgdown">

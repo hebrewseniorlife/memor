@@ -4,20 +4,7 @@ author:
 - You Name
 - Second Author
 date: "`r Sys.Date()`"
-documentclass: article
-output: 
-  memor::memor:
-    company: 
-      name: Your company's name
-      address: Your address
-      phone: 888.888.8888
-      email: your_email@email.com
-    short_title: "short title"
-    footer_on_first_page: true
-    confidential: true
-    toc: false
-    lot: false
-    lof: false
+output: memor::memor
 ---
 
 ```{r setup}

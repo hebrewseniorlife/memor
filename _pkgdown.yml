@@ -1,5 +1,5 @@
 navbar:
-  title: "curator"
+  title: "memor"
   left:
     - text: "Home"
       href: index.html
@@ -9,4 +9,4 @@ navbar:
       href: "skeleton.pdf"
   right:
     - icon: fa-github
-      href: https://github.com/hebrewseniorlife/curator
+      href: https://github.com/hebrewseniorlife/memor

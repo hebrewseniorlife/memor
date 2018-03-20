@@ -12,8 +12,7 @@ memor(use_profile = TRUE, logo = NULL, company = NULL,
 }
 \arguments{
 \item{use_profile}{T/F value for whether the user profile in 
-`~/memor-profile.yaml` will be loaded. Default is `TRUE`. See package 
-vignette for details.}
+`~/memor-profile.yaml` will be loaded. Default is `TRUE`.}
 
 \item{logo}{File path to Company logo file. The logo will be printed on
 the top right corner of the first page and the size will be adjusted to
