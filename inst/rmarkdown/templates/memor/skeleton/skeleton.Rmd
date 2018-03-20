@@ -7,7 +7,6 @@ date: "`r Sys.Date()`"
 documentclass: article
 output: 
   memor::memor:
-    keep_tex: true
     company: 
       name: Your company's name
       address: Your address

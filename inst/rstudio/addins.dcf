@@ -1,0 +1,4 @@
+Name: Edit memor profile
+Description: Quickly open up the profile file for the memor package.
+Binding: memor_profile
+Interactive: false

@@ -1,0 +1,7 @@
+company:
+  name: ABC Company
+  address: 100 abc road
+  phone: 888.888.8888
+  email: abc@abc.com
+confidential: true
+watermark: Top Secret

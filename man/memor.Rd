@@ -4,14 +4,47 @@
 \alias{memor}
 \title{Curator Template}
 \usage{
-memor(use_profile = FALSE, logo = NULL, company = NULL,
-  short_title = NULL, footer_on_first_page = TRUE, confidential = TRUE,
-  toc = FALSE, lot = FALSE, lof = FALSE, number_sections = TRUE,
-  latex_engine = "xelatex", ...)
+memor(use_profile = TRUE, logo = NULL, company = NULL,
+  short_title = NULL, watermark = NULL, confidential = TRUE,
+  logo_height = "1.2cm", watermark_color = "gray",
+  footer_on_first_page = TRUE, toc = FALSE, lot = FALSE, lof = FALSE,
+  number_sections = TRUE, latex_engine = "xelatex", ...)
 }
 \arguments{
-\item{toc}{logical value for table of contents. See ?rmarkdown::pdf_document
+\item{use_profile}{T/F value for whether the user profile in 
+`~/memor-profile.yaml` will be loaded. Default is `TRUE`. See package 
+vignette for details.}
+
+\item{logo}{File path to Company logo file. The logo will be printed on
+the top right corner of the first page and the size will be adjusted to
+`logo_height`.}
+
+\item{company}{Company Name as the page footnote. You can input a list of 
+values, such as company name, address, telephone and email.}
+
+\item{short_title}{A shorten version of the title to be printed on the 
+top-right corner of every page, except the front page.}
+
+\item{watermark}{Watermark Text to be printed on the page. You can change
+its color via `watermark_color`.}
+
+\item{confidential}{T/F value for whether a red confidential sign will
+be printed.}
+
+\item{logo_height}{Height of the logo image. This logo image will be scaled
+to height and the default height is 1.2cm.}
+
+\item{watermark_color}{Color for the watermark text. Default is "gray".}
+
+\item{footer_on_first_page}{T/F value for whether the company info footer 
+will be displayed on the front page.}
+
+\item{toc}{T/F value for table of contents. See ?rmarkdown::pdf_document
 for details}
+
+\item{lot}{T/F value for list of tables.}
+
+\item{lof}{T/F value for list of figures.}
 
 \item{number_sections}{logical value for wether sections should be numbered.
 See ?rmarkdown::pdf_document for details}

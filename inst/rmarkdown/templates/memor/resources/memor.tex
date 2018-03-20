@@ -288,7 +288,7 @@ $endif$
 \pretitle{
 $if(logo)$
 \begin{flushright}
-\includegraphics[height=$if(logo_height)$$logo_height$$else$1.2cm$endif$, keepaspectratio]{$logo$}
+\includegraphics[height=$logo_height$, keepaspectratio]{$logo$}
 \end{flushright}
 $endif$
 \vskip 5em \begin{flushleft}\LARGE}
@@ -343,6 +343,20 @@ $endif$
 
 \def\tightlist{}
 
+
+$if(watermark)$
+\usepackage[printwatermark]{xwatermark}
+\newsavebox\mybox
+\savebox\mybox{\tikz[color=$watermark_color$,opacity=0.2]\node{$watermark$};}
+\newwatermark*[
+  allpages,
+  angle=45,
+  scale=6,
+  xpos=-20,
+  ypos=15
+]{\usebox\mybox}
+
+$endif$
 
 \begin{document}
 
