@@ -1,4 +1,4 @@
-# memor
+# memor <img src="https://hebrewseniorlife.github.io/memor/memor.svg" align="right" alt="logo" width="120" height = "139" style = "border: none; float: right;">
 `memor` is a beautifully designed rmarkdown LaTeX template with lots of customizable options. It provides useful features such as company/institution logo, contact info, watermark as so on. It also allow users to have a small yaml section in their rmarkdown by allowing them to save their preference in a profile file. 
 
 # Install
