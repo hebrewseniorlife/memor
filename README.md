@@ -31,6 +31,6 @@ output:
     latex_engine: xelatex
 ```
 
-At the same time, it's encouraged to use a separated "profile" file to store all your personal/company info. Here, if you are using RStudio, you can use the "Edit memor profile" RStudio addin coming together with this package. This addin does nothing more than opening up the `~/memor-profile.yaml` file in your home directory (if this file doesn't exist, it will create one), where you can save your company's contact info and some common setup in your case. 
+At the same time, it's encouraged to use a separated "profile" file to store your personal/company info and common setups. Here, if you are using RStudio, you can use the "Edit memor profile" RStudio addin coming together with this package. This addin does nothing more than opening up the `~/memor-profile.yaml` file in your home directory (if this file doesn't exist, it will create one). Note that if you have a profile but you don't want to use the profile for certain document, you can disable this behavior by setting `use_profile` to be `false` in your document.
 
 ![RStudio Addin](https://raw.githubusercontent.com/hebrewseniorlife/memor/master/docs/addin.png)
