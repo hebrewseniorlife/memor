@@ -1,4 +1,4 @@
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+\documentclass[$if(fontsize)$$fontsize$$else$11pt,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 $if(fontfamily)$
 \usepackage{$fontfamily$}
 $else$
@@ -48,6 +48,8 @@ $endif$
 }{}
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$else$
+\usepackage[top=0.5in, bottom=.4in, left = 1in, right=1in, includeheadfoot]{geometry}
 $endif$
 $if(lang)$
 \ifxetex
@@ -80,9 +82,7 @@ $if(verbatim-in-note)$
 \usepackage{fancyvrb}
 \VerbatimFootnotes
 $endif$
-$if(tables)$
 \usepackage{longtable,booktabs}
-$endif$
 $if(graphics)$
 \usepackage{graphicx}
 \makeatletter
@@ -106,9 +106,9 @@ $endif$
             pdfauthor={$author-meta$},
             pdftitle={$title-meta$},
             colorlinks=true,
-            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
+            citecolor=$if(citecolor)$$citecolor$$else$green$endif$,
             urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$blue$endif$,
             pdfborder={0 0 0}}
 \urlstyle{same}  % don't use monospace font for urls
 $if(links-as-notes)$
@@ -180,33 +180,28 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% above is from rmarkdown default.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% document formatting
 \usepackage[table]{xcolor} % colors for tables and text
 \usepackage{ragged2e} % justifying text
 \usepackage{setspace} % spacing commands, automatically makes captions single-spaced
   \setstretch{1.2} \frenchspacing
 \usepackage{lastpage} % access number of last page for numbering in margin
-% \usepackage{pdflscape} % for page rotation
-% \usepackage{tabularx,tabulary}
-% \usepackage{tabu}
+\usepackage{pdflscape} % for page rotation
+\usepackage{tabularx,tabulary}
+\usepackage{tabu}
 
 %% fonts setup
 
 \usepackage{gensymb} %degree symbol
 \usepackage{libertine} %load Linux Libertine so no need for installation
-% \usepackage{unicode-math}
-% \usepackage{float} % used to fix floating objects to a specific spot
-% \usepackage{array}
-% \usepackage{multirow}
-% \usepackage{wrapfig}
-% \usepackage{float}
-% \usepackage{colortbl}
-% \usepackage{threeparttable}
+\usepackage{unicode-math}
+\usepackage{float} % used to fix floating objects to a specific spot
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{threeparttable}
 \usepackage[hang]{footmisc}
 
 \setmathfont{Asana-Math.otf}
@@ -356,7 +351,9 @@ $endif$
 
 \begin{document}
 
+$if(title)$
 \maketitle
+$endif$
 
 $if(footer_on_first_page)$
 \thispagestyle{firststyle}
@@ -368,6 +365,10 @@ $abstract$ \clearpage
 \end{abstract}
 $endif$
 
+$for(include-before)$
+$include-before$
+
+$endfor$
 $if(toc)$
 {
 \hypersetup{linkcolor=black}

@@ -20,7 +20,7 @@ Here is a table
 
 ```{r}
 kable(mtcars[1:5, 1:5], booktabs = T, caption = "a table") %>%
-  kable_styling(latex_options = "HOLD_position")
+  kable_styling(latex_options = c("striped", "HOLD_position"), position = "left")
 ```
 
 \clearpage 
