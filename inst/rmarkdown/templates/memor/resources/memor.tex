@@ -8,6 +8,7 @@ $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
 $endif$
+\usepackage{savesym}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -20,6 +21,7 @@ $endif$
 \else % if luatex or xelatex
   \ifxetex
     \usepackage{mathspec}
+    \savesymbol{setmathfont}
     \usepackage{xltxtra,xunicode}
   \else
     \usepackage{fontspec}
@@ -34,6 +36,9 @@ $if(sansfont)$
 $endif$
 $if(monofont)$
     \setmonofont[Mapping=tex-ansi]{$monofont$}
+$endif$
+$if(mathfont)$
+    \setmathfont(Digits,Latin,Greek){$mathfont$}
 $endif$
 \fi
 % use upquote if available, for straight quotes in verbatim environments
