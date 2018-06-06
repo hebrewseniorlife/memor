@@ -1,0 +1,45 @@
+---
+title: "Your Revolutionary Study on Your Favorite Topic"
+author: 
+- Your Name
+- Your Best Friend
+date: "`r Sys.Date()`"
+output: 
+  memor::memor:
+    logo: "memor.png"
+    logo_height: 2.5cm
+---
+
+```{r setup, include = FALSE}
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+options(knitr.table.format = "latex")
+opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+# Introduction
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae maximus lectus. Mauris pulvinar turpis quam, id ultrices ante sollicitudin in. Ut a efficitur nunc. Cras eu laoreet justo. Vestibulum sagittis, est at tempus facilisis, elit felis vulputate augue, a pharetra mi lorem eget erat. Maecenas porttitor, nisl quis cursus elementum, erat dui dictum erat, sit amet rutrum justo diam in diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+
+Quisque ultricies nibh eu lorem scelerisque blandit eget in erat. Pellentesque libero sapien, fringilla sagittis semper at, malesuada scelerisque ipsum. Aenean massa sem, feugiat at ligula sagittis, maximus porttitor est. Sed convallis rhoncus ipsum vitae aliquet. Sed vel tortor quis justo porta accumsan. Sed vel aliquam dolor. Praesent maximus efficitur mauris, ut tempor risus pretium et. Vivamus convallis lorem sagittis, ullamcorper elit vitae, accumsan leo. Pellentesque volutpat arcu est, at blandit felis blandit vel. Praesent placerat, turpis ornare mattis vestibulum, est diam vulputate libero, sit amet eleifend dui eros vel felis. Nunc vestibulum odio velit, non fringilla urna euismod nec.
+
+Donec tincidunt odio quis ullamcorper euismod. Quisque vitae fringilla quam. Aliquam non lectus et neque efficitur fermentum. Sed faucibus dapibus mattis. Nulla pellentesque tellus sit amet ante sodales, nec pulvinar massa suscipit. Etiam vehicula dolor ligula, in lobortis turpis vulputate ac. Aenean varius, nisi sed porttitor consectetur, ipsum nibh rhoncus nibh, vel ullamcorper leo massa sit amet metus. Curabitur et est maximus arcu elementum congue. Praesent vel eros ut elit posuere iaculis. Nulla iaculis congue nisl eget ultrices. Quisque at dui at lectus consectetur interdum. Sed lobortis ex quis mollis cursus. Proin egestas vehicula mauris quis congue. Aliquam gravida enim vitae semper elementum.
+
+Ut consectetur, urna nec maximus commodo, eros ligula ullamcorper ex, luctus porta mi ligula ac purus. Quisque faucibus sem ut cursus mollis. Mauris hendrerit eu arcu nec fermentum. Aliquam erat volutpat. Ut imperdiet metus eget gravida blandit. Phasellus viverra lectus placerat scelerisque pulvinar. Nullam eu erat ante. Phasellus ullamcorper sapien eu pretium convallis. Vivamus eget imperdiet nulla. Pellentesque finibus justo non nisi faucibus, a vulputate massa hendrerit.
+
+Quisque tortor turpis, ornare eget augue vel, placerat iaculis erat. Fusce eu congue mi, a dapibus magna. Sed tempor eget mi in feugiat. Duis varius elementum accumsan. Fusce sed velit vitae erat gravida tincidunt quis non neque. Duis eget gravida mauris, fermentum tincidunt leo. Donec nunc eros, efficitur vitae lacus tempor, rhoncus viverra felis.
+
+```{r}
+kable(mtcars[1:5, 1:5], booktabs = T, caption = "a table") %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"), position = "left")
+```
+
+\clearpage 
+
+# Section 2
+Here is a plot.
+
+```{r}
+ggplot(mtcars, aes(x = mpg, y = wt)) +
+  geom_point()
+```

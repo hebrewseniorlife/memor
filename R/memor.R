@@ -40,11 +40,7 @@ memor <- function(use_profile = TRUE,
                   number_sections = TRUE, latex_engine = "xelatex", ...) {
   if (use_profile) {
     profile_yaml <- try(yaml::read_yaml("~/memor-profile.yaml"), silent = TRUE)
-    if (class(profile_yaml) == "try-error") {
-      warning("You haven't setup a memor profile under your home directory. ",
-              "Please consider to create a 'memor-profile.yaml' there using ",
-              "the RStudio Addin.")
-    } else {
+    if (!class(profile_yaml) == "try-error") {
       profile_yaml_names <- names(profile_yaml)
       for (i in 1:length(profile_yaml)) {
         assign(profile_yaml_names[i], profile_yaml[[i]])
