@@ -21,15 +21,23 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
 <meta property="og:title" content="Manage memor profile — memor_profile" />
 
 <meta property="og:description" content="This RStudio Addin opens up the ~/memor-profile.yaml file for
 users to edit. If the file doesn't exists, it will create one." />
 <meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -52,8 +60,12 @@ users to edit. If the file doesn't exists, it will create one." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">memor</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">memor</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -63,7 +75,7 @@ users to edit. If the file doesn't exists, it will create one." />
   <a href="../reference/">Reference</a>
 </li>
 <li>
-  <a href="../skeleton.pdf">Sample Document</a>
+  <a href="../demo.pdf">Sample Document</a>
 </li>
       </ul>
       
@@ -75,6 +87,7 @@ users to edit. If the file doesn't exists, it will create one." />
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -82,17 +95,20 @@ users to edit. If the file doesn't exists, it will create one." />
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Manage memor profile</h1>
-    <small>Source: <a href='https:/github.com/hebrewseniorlife/memor/blob/master/R/memor_profile.R'><code>R/memor_profile.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/hebrewseniorlife/memor/blob/master/R/memor_profile.R'><code>R/memor_profile.R</code></a></small>
+    <div class="hidden name"><code>memor_profile.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>This RStudio Addin opens up the ~/memor-profile.yaml file for
 users to edit. If the file doesn't exists, it will create one.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>memor_profile</span>()</pre>
         
@@ -108,7 +124,7 @@ users to edit. If the file doesn't exists, it will create one.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Hao Zhu, Thomas Travison, Timothy Tsai.</p>
+  <p>Developed by Hao Zhu, Timothy Tsai, Thomas Travison.</p>
 </div>
 
 <div class="pkgdown">
@@ -117,6 +133,8 @@ users to edit. If the file doesn't exists, it will create one.</p>
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

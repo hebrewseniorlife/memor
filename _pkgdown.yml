@@ -6,7 +6,7 @@ navbar:
     - text: "Reference"
       href: "reference/"
     - text: "Sample Document"
-      href: "skeleton.pdf"
+      href: "demo.pdf"
   right:
     - icon: fa-github
       href: https://github.com/hebrewseniorlife/memor

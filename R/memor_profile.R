@@ -2,6 +2,8 @@
 #'
 #' @description This RStudio Addin opens up the ~/memor-profile.yaml file for
 #' users to edit. If the file doesn't exists, it will create one.
+#' 
+#' @importFrom utils file.edit
 #' @export
 memor_profile <- function() {
   if (!file.exists("~/memor-profile.yaml")) {

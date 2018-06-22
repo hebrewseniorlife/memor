@@ -4,14 +4,13 @@ author:
 - You Name
 - Second Author
 date: "`r Sys.Date()`"
-output: memor::memor
+output: memor::pdf_memo
 ---
 
 ```{r setup}
 library(knitr)
 library(kableExtra)
 library(ggplot2)
-options(knitr.table.format = "latex")
 opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 

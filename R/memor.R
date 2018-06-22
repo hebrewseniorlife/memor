@@ -1,4 +1,4 @@
-#' Curator Template
+#' PDF Memo Template
 #'
 #' @param use_profile T/F value for whether the user profile in 
 #' `~/memor-profile.yaml` will be loaded. Default is `TRUE`. 
@@ -31,17 +31,38 @@
 #' @importFrom rmarkdown pdf_document pandoc_variable_arg
 #' @import knitr
 #' @export
-memor <- function(use_profile = TRUE, 
-                  logo = NULL, company = NULL, short_title = NULL, 
-                  watermark = NULL, confidential = TRUE, 
-                  logo_height = "1.2cm", watermark_color = "gray",
-                  footer_on_first_page = TRUE, 
-                  toc = FALSE, lot = FALSE, lof = FALSE, 
-                  number_sections = TRUE, latex_engine = "xelatex", ...) {
+pdf_memo <- function(use_profile = TRUE, 
+                     logo = NULL, company = NULL, short_title = NULL, 
+                     watermark = NULL, confidential = TRUE, 
+                     logo_height = "1.2cm", watermark_color = "gray",
+                     footer_on_first_page = TRUE, 
+                     toc = FALSE, lot = FALSE, lof = FALSE, 
+                     number_sections = TRUE, latex_engine = "xelatex", ...) {
   if (use_profile) {
     profile_yaml <- try(yaml::read_yaml("~/memor-profile.yaml"), silent = TRUE)
     if (!class(profile_yaml) == "try-error") {
+      profile_compare <- list(
+        logo = list(logo, NULL), company = list(company, NULL), 
+        short_title = list(short_title, NULL), 
+        watermark = list(watermark, NULL), 
+        confidential = list(confidential, TRUE), 
+        logo_height = list(logo_height, "1.2cm"), 
+        watermark_color = list(watermark_color, "gray"),
+        footer_on_first_page = list(footer_on_first_page, TRUE), 
+        toc = list(toc, FALSE), lot = list(lot, FALSE), lof = list(lof, FALSE), 
+        number_sections = list(number_sections, TRUE), 
+        latex_engine = list(latex_engine, "xelatex")
+      )
+      changed_items <- lapply(profile_compare, function(x){
+        !identical(x[[1]], x[[2]])
+      })
+      changed_items <- names(changed_items)[changed_items == T]
+      
       profile_yaml_names <- names(profile_yaml)
+      profile_yaml_names <- profile_yaml_names[!profile_yaml_names %in% 
+                                                 changed_items]
+      profile_yaml <- profile_yaml[profile_yaml_names]
+      
       for (i in 1:length(profile_yaml)) {
         assign(profile_yaml_names[i], profile_yaml[[i]])
       }
@@ -99,3 +120,5 @@ memor <- function(use_profile = TRUE,
   
   return(config)
 }
+
+
