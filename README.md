@@ -3,8 +3,6 @@ This package is intended for data scientists, statisticians, and allied scientis
 
 [Sample Document](https://hebrewseniorlife.github.io/memor/demo.pdf)
 
-![](https://raw.githubusercontent.com/hebrewseniorlife/memor/master/docs/sample_doc.png)
-
 # Installation
 ```{r}
 devtools::install_github("hebrewseniorlife/memor")
