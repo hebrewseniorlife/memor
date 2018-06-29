@@ -26,7 +26,9 @@ opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
 # Introduction
-We, the biostatistics group at Institute for Aging Research, love rmarkdown. However, in practice, we realized the gap between the default rmarkdown template and what we really want. Some of these needs are quite universal, such as company logo, contact info and so on. Therefore, we created this `memor` package designed to let people easily customize these common "gadgets" of a printable document. With this `LaTeX` template, you can achieve the same result as this demo file by using the following `YAML` header. 
+We love rmarkdown. In practice, however, we often have specific customization requirements for reporting of reproducible research. Some of these are universal, such as company logo or letterhead, contact info and so on. 
+
+We created this `memor` package to allow for easier customization of `LaTex`-based documents combining text and results from R. This document is produced using the following `YAML` header. 
 
 ```
 title: "memor: Customizable LaTeX Template for rmarkdown"
