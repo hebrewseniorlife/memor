@@ -1,44 +1,42 @@
 ---
 title: "memor: Customizable LaTeX Template for rmarkdown"
-author: 
-- Hao Zhu
-- Timothy Tsai
-- Thomas Travison
+author: Hao Zhu, Timothy Tsai, Thomas Travison
 date: "`r Sys.Date()`"
 output: 
   memor::pdf_memo:
+    keep_tex: true
     logo: "memor.png"
     logo_height: 2.5cm
+    use_profile: false
     company:
       name: Institute for Aging Research
       address: 1200 Centre St, Boston, MA
       phone: 617-971-5386
       email: stats@hsl.harvard.edu
-    confidential: true
-    watermark: Not So Secret
+    confidential: false
+    watermark: Open Access
 ---
 
 ```{r setup, include = FALSE}
 library(knitr)
 library(kableExtra)
 library(ggplot2)
-opts_chunk$set(warning = FALSE, message = FALSE)
+opts_chunk$set(warning = FALSE, message = FALSE, fig.pos = "h")
 ```
 
 # Introduction
 We love rmarkdown. In practice, however, we often have specific customization requirements for reporting of reproducible research. Some of these are universal, such as company logo or letterhead, contact info and so on. 
 
-We created this `memor` package to allow for easier customization of `LaTex`-based documents combining text and results from R. This document is produced using the following `YAML` header. 
+We created this `memor` package to allow for easier customization of `LaTeX`-based documents combining text and results from R. This document is produced using the following `YAML` header. 
 
 ```
+---
 title: "memor: Customizable LaTeX Template for rmarkdown"
-author: 
-- Hao Zhu
-- Timothy Tsai
-- Thomas Travison
+author: Hao Zhu, Timothy Tsai, Thomas Travison
 date: "`r Sys.Date()`"
 output: 
   memor::pdf_memo:
+    keep_tex: true
     logo: "memor.png"
     logo_height: 2.5cm
     company:
@@ -46,18 +44,19 @@ output:
       address: 1200 Centre St, Boston, MA
       phone: 617-971-5386
       email: stats@hsl.harvard.edu
-    confidential: true
-    watermark: Not So Secret
+    confidential: false
+    watermark: Open Access
+---
 ```
 
-# Section 2
-Here are the table and figure.
+# Tables & Figures
+Here are how tables and figures looks like in this template. Caption color is controlled by `citecolor`.
 ```{r}
-kable(mtcars[1:5, 1:5], booktabs = T, caption = "a table") %>%
+kable(mtcars[1:5, 1:5], booktabs = T, caption = "A Table") %>%
   kable_styling(latex_options = c("striped", "HOLD_position"), position = "left")
 ```
 
-```{r}
+```{r, fig.cap="A Plot", out.extra=""}
 ggplot(mtcars, aes(x = mpg, y = wt)) +
   geom_point()
 ```

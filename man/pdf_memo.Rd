@@ -2,10 +2,10 @@
 % Please edit documentation in R/memor.R
 \name{pdf_memo}
 \alias{pdf_memo}
-\title{PDF Memo Template}
+\title{Memor PDF Memo Template}
 \usage{
 pdf_memo(use_profile = TRUE, logo = NULL, company = NULL,
-  short_title = NULL, watermark = NULL, confidential = TRUE,
+  short_title = NULL, watermark = NULL, confidential = FALSE,
   logo_height = "1.2cm", watermark_color = "gray",
   footer_on_first_page = TRUE, toc = FALSE, lot = FALSE, lof = FALSE,
   number_sections = TRUE, latex_engine = "xelatex", ...)
@@ -54,5 +54,5 @@ See ?rmarkdown::pdf_document for details}
 ?rmarkdown::pdf_document for details}
 }
 \description{
-PDF Memo Template
+Memor PDF Memo Template
 }

@@ -8,7 +8,6 @@ $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
 $endif$
-\usepackage{savesym}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -21,7 +20,6 @@ $endif$
 \else % if luatex or xelatex
   \ifxetex
     \usepackage{mathspec}
-    \savesymbol{setmathfont}
     \usepackage{xltxtra,xunicode}
   \else
     \usepackage{fontspec}
@@ -53,10 +51,28 @@ $if(geometry)$
 $else$
 \usepackage[top=0.5in, bottom=.4in, left = 1in, right=1in, includeheadfoot]{geometry}
 $endif$
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={$author-meta$},
+            pdftitle={$title-meta$},
+            colorlinks=true,
+            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
 $if(lang)$
 \ifxetex
   \usepackage{polyglossia}
   \setmainlanguage{$mainlang$}
+  \setotherlanguages{$for(otherlang)$$otherlang$$sep$,$endfor$}
 \else
   \usepackage[shorthands=off,$lang$]{babel}
 \fi
@@ -67,9 +83,9 @@ $if(natbib)$
 $endif$
 $if(biblatex)$
 \usepackage{biblatex}
-$if(biblio-files)$
-\bibliography{$biblio-files$}
-$endif$
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
 $endif$
 $if(listings)$
 \usepackage{listings}
@@ -96,32 +112,15 @@ $if(graphics)$
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 $endif$
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={$author-meta$},
-            pdftitle={$title-meta$},
-            colorlinks=true,
-            citecolor=$if(citecolor)$$citecolor$$else$green$endif$,
-            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$blue$endif$,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
 $if(links-as-notes)$
 % Make links footnotes instead of hotlinks:
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 $endif$
-$if(strikeout)$
+% $if(strikeout)$
 \usepackage[normalem]{ulem}
 % avoid problems with \sout in headers with hyperref:
-\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
-$endif$
+% \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+% $endif$
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
@@ -182,28 +181,30 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+%% --------- above is almost identical with default rmarkdown
 %% document formatting
-\usepackage[table]{xcolor} % colors for tables and text
+ % colors for tables and text
 \usepackage{ragged2e} % justifying text
 \usepackage{setspace} % spacing commands, automatically makes captions single-spaced
   \setstretch{1.2} \frenchspacing
 \usepackage{lastpage} % access number of last page for numbering in margin
-\usepackage{pdflscape} % for page rotation
-\usepackage{tabularx,tabulary}
-\usepackage{tabu}
 
 %% fonts setup
-
 \usepackage{gensymb} %degree symbol
-\usepackage{libertine} %load Linux Libertine so no need for installation
 \usepackage{unicode-math}
-\usepackage{float} % used to fix floating objects to a specific spot
+
 \usepackage{array}
 \usepackage{multirow}
+\usepackage[table]{xcolor}
 \usepackage{wrapfig}
 \usepackage{float}
 \usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
 \usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{makecell}
+
 \usepackage[hang]{footmisc}
 
 % \setmathfont{Asana-Math.otf}
@@ -216,14 +217,13 @@ $endfor$
 \counterwithin{table}{section}
 \counterwithin{figure}{section}
 
-\usepackage{makecell} % allow linebreaks in table cells using \thead (headers) and \makecell
 \robustify\tnote
 
 % table/figure captions (titles and legends)
 \usepackage{caption}
 \DeclareCaptionFormat{llap}{\llap{#1#2}#3\par} % table / figure number in left margin
 \DeclareCaptionLabelSeparator{spc}{\hspace{.075 in}} % space between table number and caption
-\captionsetup{font={color=blue, sf}, singlelinecheck=off, margin= 15pt, skip=4pt, size=small, labelfont={sc, sf}, format=llap, labelsep=spc,singlelinecheck=no} % same font as headers
+\captionsetup{font={color=$if(citecolor)$$citecolor$$else$blue$endif$, sf}, singlelinecheck=off, margin= 15pt, skip=4pt, size=small, labelfont={sc, sf}, format=llap, labelsep=spc,singlelinecheck=no} % same font as headers
 
 
 \makeatletter
@@ -235,43 +235,50 @@ $else$
 $endif$
 \makeatother
 
- \usepackage{fancyhdr}
-  \pagestyle{fancy}
-  \fancyhf{}
-  \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{0.5pt}
-  \rhead{ \footnotesize \nouppercase{\sc $if(short_title)$$short_title$$else$\runtitle$endif$} \hspace{.025 in} \cdot \hspace{.055 in} \thepage \hspace{.018 in} of \hspace{.0005 in} \pageref*{LastPage}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+$if(company)$
+\rhead{\footnotesize \nouppercase{\sc $if(short_title)$$short_title$$else$\runtitle$endif$} \hspace{.025 in} \cdot \hspace{.055 in} \thepage \hspace{.01 in} / \pageref*{LastPage}}
+$else$
+\rhead{\footnotesize \nouppercase{\sc $if(short_title)$$short_title$$else$\runtitle$endif$}}
+$endif$
 
    $if(confidential)$
    \lhead{\textcolor{red}{\it Confidential; do not circulate}}
    $endif$
 
-   \cfoot{\footnotesize
    $if(company)$
-  $company$
-  $endif$
+   \renewcommand{\footrulewidth}{0.5pt}
+   \cfoot{\footnotesize
+   $company$
    }
+   $else$
+   \renewcommand{\footrulewidth}{0pt}
+   \rfoot{\footnotesize \thepage}
+   $endif$
 
 \fancypagestyle{firststyle}
 {
    \fancyhf{}
-   \cfoot{\footnotesize
    $if(company)$
-  $company$
-  $endif$
+   \renewcommand{\footrulewidth}{0.5pt}
+   \cfoot{\footnotesize
+   $company$
    }
+   $else$
+   \renewcommand{\footrulewidth}{0pt}
+   $endif$
 }
 
-
+\setlength\parindent{0pt}
 
 \usepackage{titlesec}
-
-\newfontfamily\headingfont[]{LinBiolinum_R.otf}
-\titleformat*{\section}{\sc \large \color[rgb]{0,0,0} \headingfont}
-\titleformat*{\subsection}{\large \headingfont}
-\titleformat*{\subsubsection}{\normalsize \headingfont}
-\renewcommand{\maketitlehooka}{\headingfont}
-
+\titleformat*{\section}{\sc \large \color[rgb]{0,0,0}}
+\titleformat*{\subsection}{\large}
+\titleformat*{\subsubsection}{\normalsize}
+\renewcommand{\maketitlehooka}{}
 \titlespacing\section{0pt}{8pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
 \titlespacing\subsection{0pt}{6pt plus 2pt minus 2pt}{-2pt plus 2pt minus 2pt}
 \titlespacing\subsubsection{0pt}{2pt plus 2pt minus 2pt}{-3pt plus 2pt minus 2pt}
@@ -284,7 +291,9 @@ $if(logo)$
 \includegraphics[height=$logo_height$, keepaspectratio]{$logo$}
 \end{flushright}
 $endif$
-\vskip 5em \begin{flushleft}\LARGE}
+% \vskip 5em 
+
+\begin{flushleft}\LARGE}
 
 \posttitle{\end{flushleft}}
 
@@ -309,18 +318,11 @@ $endif$
 \renewcommand{\abstractname}{\headingfont \large}
 \renewenvironment{abstract} {\abstractname \justifying \rm \normalsize }
 
-\usepackage{tikz}
-
-\usepackage[detect-all]{siunitx}
-
-\sisetup{table-format = 3.3, input-symbols = >()<, tight-spacing = true, table-space-text-pre = \(<\)} % table-align-text-post = false,
-
-
 \newlength\tbspace
 \setlength\tbspace{.25in}
 
 % units.
-\usepackage{units}
+%\usepackage{units}
 
 $if(highlighting-macros)$
 %% change fontsize of R code
@@ -338,6 +340,7 @@ $endif$
 
 
 $if(watermark)$
+\usepackage{tikz}
 \usepackage[printwatermark]{xwatermark}
 \newsavebox\mybox
 \savebox\mybox{\tikz[color=$watermark_color$,opacity=0.2]\node{$watermark$};}
@@ -348,11 +351,23 @@ $if(watermark)$
   xpos=-20,
   ypos=15
 ]{\usebox\mybox}
-
 $endif$
 
-\begin{document}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
 
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\begin{document}
 $if(title)$
 \maketitle
 $endif$
@@ -373,16 +388,14 @@ $include-before$
 $endfor$
 $if(toc)$
 {
-\hypersetup{linkcolor=black}
+\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
 }
 $endif$
-
 $if(lot)$
 \listoftables
 $endif$
-
 $if(lof)$
 \listoffigures
 $endif$
@@ -390,7 +403,7 @@ $endif$
 $body$
 
 $if(natbib)$
-$if(biblio-files)$
+$if(bibliography)$
 $if(biblio-title)$
 $if(book-class)$
 \renewcommand\bibname{$biblio-title$}
@@ -398,7 +411,7 @@ $else$
 \renewcommand\refname{$biblio-title$}
 $endif$
 $endif$
-\bibliography{$biblio-files$}
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
 
 $endif$
 $endif$

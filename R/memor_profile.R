@@ -6,11 +6,12 @@
 #' @importFrom utils file.edit
 #' @export
 memor_profile <- function() {
-  if (!file.exists("~/memor-profile.yaml")) {
+  profile_file <- getOption(memor_profile, "~/memor-profile.yaml")
+  if (!file.exists(profile_file)) {
     file.copy(
       from = system.file("memor-profile.yaml", package = "memor"),
-      to = "~/memor-profile.yaml"
+      to = profile_file
     )
   }
-  file.edit("~/memor-profile.yaml")
+  file.edit(profile_file)
 }

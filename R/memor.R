@@ -33,19 +33,20 @@
 #' @export
 pdf_memo <- function(use_profile = TRUE, 
                      logo = NULL, company = NULL, short_title = NULL, 
-                     watermark = NULL, confidential = TRUE, 
+                     watermark = NULL, confidential = FALSE, 
                      logo_height = "1.2cm", watermark_color = "gray",
                      footer_on_first_page = TRUE, 
                      toc = FALSE, lot = FALSE, lof = FALSE, 
                      number_sections = TRUE, latex_engine = "xelatex", ...) {
   if (use_profile) {
-    profile_yaml <- try(yaml::read_yaml("~/memor-profile.yaml"), silent = TRUE)
+    profile_file <- getOption(memor_profile, "~/memor-profile.yaml")
+    profile_yaml <- try(yaml::read_yaml(profile_file), silent = TRUE)
     if (!class(profile_yaml) == "try-error") {
       profile_compare <- list(
         logo = list(logo, NULL), company = list(company, NULL), 
         short_title = list(short_title, NULL), 
         watermark = list(watermark, NULL), 
-        confidential = list(confidential, TRUE), 
+        confidential = list(confidential, FALSE), 
         logo_height = list(logo_height, "1.2cm"), 
         watermark_color = list(watermark_color, "gray"),
         footer_on_first_page = list(footer_on_first_page, TRUE), 
@@ -63,8 +64,10 @@ pdf_memo <- function(use_profile = TRUE,
                                                  changed_items]
       profile_yaml <- profile_yaml[profile_yaml_names]
       
-      for (i in 1:length(profile_yaml)) {
-        assign(profile_yaml_names[i], profile_yaml[[i]])
+      if (length(profile_yaml) != 0) {
+        for (i in 1:length(profile_yaml)) {
+          assign(profile_yaml_names[i], profile_yaml[[i]])
+        }
       }
     }
   }
@@ -79,7 +82,7 @@ pdf_memo <- function(use_profile = TRUE,
   if (!is.null(company)) {
     if (is.list(company) && length(company) > 1) {
       company <- paste(unlist(company), 
-                       collapse = " \\hspace{.025 in} \\cdot \\hspace{.05 in} ")
+                       collapse = " \\hspace{.025 in} $\\cdot$ \\hspace{.05 in} ")
     }
     memor_args <- c(memor_args, pandoc_variable_arg("company", company))
   }
