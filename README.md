@@ -1,7 +1,10 @@
 # memor <img src="https://hebrewseniorlife.github.io/memor/memor.svg" align="right" alt="logo" width="120" height = "139" style = "border: none; float: right;">
 This package is intended for data scientists, statisticians, and allied scientists who use rmarkdown to conduct reproducible research but require flexibility in document formatting. It is based on a pre-existing latex template that we have updated for use in RStudio or equivalent environments. A notable inclusion is a feature allowing the user to save develop a common configuration file, which can be shared among the team within a working environment. 
 
-[Sample Document](https://hebrewseniorlife.github.io/memor/demo.pdf)
+[Sample 1](https://hebrewseniorlife.github.io/memor/demo.pdf)
+
+[Sample 2](https://hebrewseniorlife.github.io/memor/demo2.pdf)
+
 
 # Installation
 ```{r}

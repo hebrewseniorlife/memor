@@ -7,8 +7,12 @@ navbar:
       href: "reference/"
     - text: "News"
       href: "news/index.html"
-    - text: "Sample Document"
-      href: "demo.pdf"
+    - text: "Sample Documents"
+      menu:
+        - text: "Sample 1"
+          href: "demo.pdf"
+        - text: "Sample 2"
+          href: "demo2.pdf"
   right:
     - icon: fa-github
       href: https://github.com/hebrewseniorlife/memor

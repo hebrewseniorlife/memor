@@ -4,14 +4,7 @@ author: Hao Zhu, Timothy Tsai, Thomas Travison
 date: "`r Sys.Date()`"
 output: 
   memor::pdf_memo:
-    logo: "memor.png"
-    logo_height: 2.5cm
     use_profile: false
-    company:
-      name: Institute for Aging Research
-      address: 1200 Centre St, Boston, MA
-      phone: 617-971-5386
-      email: stats@hsl.harvard.edu
     confidential: false
     watermark: Open Access
 ---
@@ -35,14 +28,7 @@ author: Hao Zhu, Timothy Tsai, Thomas Travison
 date: "`r Sys.Date()`"
 output: 
   memor::pdf_memo:
-    logo: "memor.png"
-    logo_height: 2.5cm
     use_profile: false
-    company:
-      name: Institute for Aging Research
-      address: 1200 Centre St, Boston, MA
-      phone: 617-971-5386
-      email: stats@hsl.harvard.edu
     confidential: false
     watermark: Open Access
 ---
