@@ -39,4 +39,4 @@ To better facilitate this process, we created a RStudio Addin to help you quickl
 ![RStudio Addin](https://raw.githubusercontent.com/hebrewseniorlife/memor/master/docs/addin.png)
 
 # Acknowledgement
-This package was funded in part by a development project from the Biostatistical Design and Analysis Core of the [Boston Pepper Center](http://pepper.bwh.harvard.edu/) (AG031679-07). We appreciate additional support from the Hebrew Seniorlife [Institute for Aging Research](https://www.instituteforagingresearch.org/).
+This package was funded in part by a development project from the Biostatistical Design and Analysis Core of the [Boston Pepper Center](http://pepper.bwh.harvard.edu/) (AG031679-07). We appreciate additional support from the Hebrew SeniorLife [Institute for Aging Research](https://www.instituteforagingresearch.org/).
