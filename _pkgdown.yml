@@ -5,6 +5,8 @@ navbar:
       href: index.html
     - text: "Reference"
       href: "reference/"
+    - text: "News"
+      href: "news/index.html"
     - text: "Sample Document"
       href: "demo.pdf"
   right:

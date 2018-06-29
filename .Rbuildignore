@@ -1,8 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^docs$
-\inst\rmarkdown\templates\memo\skeleton\hsl.pdf
-\inst\rmarkdown\templates\memo\skeleton\skeleton.pdf
-\inst\rmarkdown\templates\memo\skeleton\skeleton.tex
-^\inst\rmarkdown\templates\memo\skeleton\sketon_files$
+inst/rmarkdown/templates/memor/skeleton.pdf
 ^_pkgdown\.yml$
+NEWS.md
