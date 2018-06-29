@@ -1,4 +1,4 @@
-#' PDF Memo Template
+#' Memor PDF Memo Template
 #'
 #' @param use_profile T/F value for whether the user profile in 
 #' `~/memor-profile.yaml` will be loaded. Default is `TRUE`. 
