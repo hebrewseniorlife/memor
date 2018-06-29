@@ -7,8 +7,8 @@ Authors@R: c(
     person("Thomas", "Travison", email = "tgt@hsl.harvard.edu", role = "aut")
     )
 Description: A 'rmarkdown' template that supports customizable company logo, 
-    contact info, watermarks and more. Right now it only includes a template for
-    'LaTeX' but a similar 'HTML' theme will be added in the future. 
+    contact info, watermarks and more. Currently restricted to 'Latex'/'Markdown'; 
+    a similar 'HTML' theme will be added in the future. 
 License: GPL-3
 URL: https://github.com/hebrewseniorlife/memor
 BugReports: https://github.com/hebrewseniorlife/memor/issues
