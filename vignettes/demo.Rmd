@@ -14,6 +14,10 @@ output:
       email: stats@hsl.harvard.edu
     confidential: false
     watermark: Open Access
+vignette: >
+  %\VignetteIndexEntry{Sample Document}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include = FALSE}

@@ -1,5 +1,5 @@
 Package: memor
-Title: A Highly Customizable 'rmarkdown' Template
+Title: A 'rmarkdown' Template That Can Be Highly Customized
 Version: 0.1.0
 Authors@R: c(
     person("Hao", "Zhu", email = "haozhu233@gmail.com", role = c("aut", "cre"), 
@@ -7,9 +7,9 @@ Authors@R: c(
     person("Timothy", "Tsai", email = "TimothyTsai@hsl.harvard.edu", role = "aut"),
     person("Thomas", "Travison", email = "tgt@hsl.harvard.edu", role = "aut")
     )
-Description: A 'rmarkdown' template that supports customizable company logo, 
-    contact info, watermarks and more. Currently restricted to 'Latex'/'Markdown'; 
-    a similar 'HTML' theme will be added in the future. 
+Description: A 'rmarkdown' template that supports company logo, contact info, 
+    watermarks and more. Currently restricted to 'Latex'/'Markdown'; a similar 
+    'HTML' theme will be added in the future. 
 License: GPL-3
 URL: https://github.com/hebrewseniorlife/memor
 BugReports: https://github.com/hebrewseniorlife/memor/issues
@@ -18,6 +18,9 @@ Imports:
     rmarkdown,
     knitr,
     utils
+Suggests:
+    kableExtra, ggplot2
+VignetteBuilder: knitr
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 6.0.1
+Roxygen: list(markdown = TRUE)

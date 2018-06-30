@@ -11,21 +11,21 @@ pdf_memo(use_profile = TRUE, logo = NULL, company = NULL,
   number_sections = TRUE, latex_engine = "xelatex", ...)
 }
 \arguments{
-\item{use_profile}{T/F value for whether the user profile in 
-`~/memor-profile.yaml` will be loaded. Default is `TRUE`.}
+\item{use_profile}{T/F value for whether the user profile in
+\code{~/memor-profile.yaml} will be loaded. Default is \code{TRUE}.}
 
 \item{logo}{File path to Company logo file. The logo will be printed on
 the top right corner of the first page and the size will be adjusted to
-`logo_height`.}
+\code{logo_height}.}
 
-\item{company}{Company Name as the page footnote. You can input a list of 
+\item{company}{Company Name as the page footnote. You can input a list of
 values, such as company name, address, telephone and email.}
 
-\item{short_title}{A shorten version of the title to be printed on the 
+\item{short_title}{A shorten version of the title to be printed on the
 top-right corner of every page, except the front page.}
 
 \item{watermark}{Watermark Text to be printed on the page. You can change
-its color via `watermark_color`.}
+its color via \code{watermark_color}.}
 
 \item{confidential}{T/F value for whether a red confidential sign will
 be printed.}
@@ -35,7 +35,7 @@ to height and the default height is 1.2cm.}
 
 \item{watermark_color}{Color for the watermark text. Default is "gray".}
 
-\item{footer_on_first_page}{T/F value for whether the company info footer 
+\item{footer_on_first_page}{T/F value for whether the company info footer
 will be displayed on the front page.}
 
 \item{toc}{T/F value for table of contents. See ?rmarkdown::pdf_document

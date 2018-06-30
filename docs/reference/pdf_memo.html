@@ -76,8 +76,20 @@
 <li>
   <a href="../news/index.html">News</a>
 </li>
-<li>
-  <a href="../demo.pdf">Sample Document</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Sample Documents
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../demo.pdf">Sample 1</a>
+    </li>
+    <li>
+      <a href="../demo2.pdf">Sample 2</a>
+    </li>
+  </ul>
 </li>
       </ul>
       
@@ -122,29 +134,29 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>use_profile</th>
-      <td><p>T/F value for whether the user profile in 
-`~/memor-profile.yaml` will be loaded. Default is `TRUE`.</p></td>
+      <td><p>T/F value for whether the user profile in
+<code>~/memor-profile.yaml</code> will be loaded. Default is <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>logo</th>
       <td><p>File path to Company logo file. The logo will be printed on
 the top right corner of the first page and the size will be adjusted to
-`logo_height`.</p></td>
+<code>logo_height</code>.</p></td>
     </tr>
     <tr>
       <th>company</th>
-      <td><p>Company Name as the page footnote. You can input a list of 
+      <td><p>Company Name as the page footnote. You can input a list of
 values, such as company name, address, telephone and email.</p></td>
     </tr>
     <tr>
       <th>short_title</th>
-      <td><p>A shorten version of the title to be printed on the 
+      <td><p>A shorten version of the title to be printed on the
 top-right corner of every page, except the front page.</p></td>
     </tr>
     <tr>
       <th>watermark</th>
       <td><p>Watermark Text to be printed on the page. You can change
-its color via `watermark_color`.</p></td>
+its color via <code>watermark_color</code>.</p></td>
     </tr>
     <tr>
       <th>confidential</th>
@@ -162,7 +174,7 @@ to height and the default height is 1.2cm.</p></td>
     </tr>
     <tr>
       <th>footer_on_first_page</th>
-      <td><p>T/F value for whether the company info footer 
+      <td><p>T/F value for whether the company info footer
 will be displayed on the front page.</p></td>
     </tr>
     <tr>
@@ -195,12 +207,20 @@ See ?rmarkdown::pdf_document for details</p></td>
     </table>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='fu'>library</span>(<span class='no'>rmarkdown</span>)
+
+<span class='fu'><a href='http://www.rdocumentation.org/packages/rmarkdown/topics/render'>render</a></span>(<span class='st'>"input.Rmd"</span>, <span class='kw pkg'>memor</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/memor/topics/pdf_memo'>pdf_memo</a></span>())
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+            
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
