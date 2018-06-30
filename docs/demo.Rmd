@@ -4,7 +4,6 @@ author: Hao Zhu, Timothy Tsai, Thomas Travison
 date: "`r Sys.Date()`"
 output: 
   memor::pdf_memo:
-    keep_tex: true
     logo: "memor.png"
     logo_height: 2.5cm
     use_profile: false
