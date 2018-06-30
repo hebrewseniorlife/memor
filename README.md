@@ -1,4 +1,10 @@
 # memor <img src="https://hebrewseniorlife.github.io/memor/memor.svg" align="right" alt="logo" width="120" height = "139" style = "border: none; float: right;">
+[![CRAN_version](http://www.r-pkg.org/badges/version/memor)](https://cran.r-project.org/package=memor)
+[![CRAN_download](http://cranlogs.r-pkg.org/badges/memor)](https://cran.r-project.org/package=memor)
+[![CRAN_download_total](http://cranlogs.r-pkg.org/badges/grand-total/memor)](https://cran.r-project.org/package=memor)
+[![DOI](https://zenodo.org/badge/107422681.svg)](https://zenodo.org/badge/latestdoi/107422681)
+
+
 This package is intended for data scientists, statisticians, and allied scientists who use rmarkdown to conduct reproducible research but require flexibility in document formatting. It is based on a pre-existing latex template that we have updated for use in RStudio or equivalent environments. A notable inclusion is a feature allowing the user to save develop a common configuration file, which can be shared among the team within a working environment. 
 
 [Sample 1](https://hebrewseniorlife.github.io/memor/demo.pdf)
