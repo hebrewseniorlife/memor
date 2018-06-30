@@ -1,5 +1,5 @@
 Package: memor
-Title: A 'rmarkdown' Template That Can Be Highly Customized
+Title: A 'rmarkdown' Template that Can be Highly Customized
 Version: 0.1.0
 Authors@R: c(
     person("Hao", "Zhu", email = "haozhu233@gmail.com", role = c("aut", "cre"), 
