@@ -1,8 +1,9 @@
 Package: memor
-Title: A highly customizable 'rmarkdown' template
+Title: A Highly Customizable 'rmarkdown' Template
 Version: 0.1.0
 Authors@R: c(
-    person("Hao", "Zhu", email = "haozhu233@gmail.com", role = c("aut", "cre")),
+    person("Hao", "Zhu", email = "haozhu233@gmail.com", role = c("aut", "cre"), 
+    comment = c(ORCID = '0000-0002-3386-6076')),
     person("Timothy", "Tsai", email = "TimothyTsai@hsl.harvard.edu", role = "aut"),
     person("Thomas", "Travison", email = "tgt@hsl.harvard.edu", role = "aut")
     )

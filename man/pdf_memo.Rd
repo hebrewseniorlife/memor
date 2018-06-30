@@ -56,3 +56,10 @@ See ?rmarkdown::pdf_document for details}
 \description{
 Memor PDF Memo Template
 }
+\examples{
+\dontrun{
+library(rmarkdown)
+
+render("input.Rmd", memor::pdf_memo())
+}
+}

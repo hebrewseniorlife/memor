@@ -30,6 +30,13 @@
 #'
 #' @importFrom rmarkdown pdf_document pandoc_variable_arg
 #' @import knitr
+#' 
+#' @examples
+#' \dontrun{
+#' library(rmarkdown)
+#'
+#' render("input.Rmd", memor::pdf_memo())
+#' }
 #' @export
 pdf_memo <- function(use_profile = TRUE, 
                      logo = NULL, company = NULL, short_title = NULL, 
