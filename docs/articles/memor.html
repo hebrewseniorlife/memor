@@ -39,7 +39,7 @@
   <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="../reference/">Reference</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -150,7 +150,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
     number_sections: true
     latex_engine: xelatex</code></pre>
 <p>In the interest of reducing the length of ‘yaml’ headers and allowing for standardization within teams, we have developed a mechanism that allows one to save one’s configuration or “profile” in an isolated file, which can be reused for other reports and shared with colleagues. During the process of rendering, information saved in the profile file will be automatically pulled and used to generate the final document (but information defined in local environment will be used with priority).</p>
-<p>To better facilitate this process, we created a RStudio Addin to help you quickly locate the file. This addin does nothing but to open up the <code>~/memor-profile.yaml</code> file in your home directory (if this file doesn’t exist, it will create one). Note that if you have a profile but you don’t want to use the profile for certain document, you can disable this behavior by setting the <code>use_profile</code> option to <code>false.</code> Furthermore, if you are customizing the location of the profile file using the <code>memor_profile</code> option, which can be specified in a <code>.Rprofile</code>, so your group can put this file in a shared space.</p>
+<p>To better facilitate this process, we created a RStudio Addin to help you quickly locate the file. This addin does nothing but to open up the <code>~/memor-profile.yaml</code> file in your home directory (if this file doesn’t exist, it will create one). Note that if you have a profile but you don’t want to use the profile for certain document, you can disable this behavior by setting the <code>use_profile</code> option to <code>false.</code> Furthermore, you can customize the location of the profile file by using the <code>memor_profile</code> option, which can be specified in a <code>.Rprofile</code>. This might be useful on a RStudio Server, where system admin can specify a R profile for everyone. In this way, the entire group will share the same file by default.</p>
 </div>
   </div>
 
