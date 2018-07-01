@@ -14,10 +14,7 @@ output:
       email: stats@hsl.harvard.edu
     confidential: false
     watermark: Open Access
-vignette: >
-  %\VignetteIndexEntry{Sample Document}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+    libertine: true
 ---
 
 ```{r setup, include = FALSE}
@@ -49,10 +46,11 @@ output:
       email: stats@hsl.harvard.edu
     confidential: false
     watermark: Open Access
+    libertine: true
 ---
 ```
 
-# Tables & Figures
+# Tables & Figures 
 Here are how tables and figures looks like in this template. Caption color is controlled by `citecolor`.
 ```{r}
 kable(mtcars[1:5, 1:5], booktabs = T, caption = "A Table") %>%

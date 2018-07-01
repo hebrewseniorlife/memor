@@ -1,0 +1,95 @@
+---
+title: "memor: Customizable LaTeX Template for rmarkdown"
+author: Hao Zhu, Timothy Tsai, Thomas Travison
+date: "`r Sys.Date()`"
+output: 
+  memor::pdf_memo:
+    logo: "memor.png"
+    logo_height: 2.5cm
+    use_profile: false
+    company:
+      name: Institute for Aging Research
+      address: 1200 Centre St, Boston, MA
+      phone: 617-971-5386
+      email: stats@hsl.harvard.edu
+    confidential: false
+    watermark: Open Access
+    libertine: true
+vignette: >
+  %\VignetteIndexEntry{Sample Document}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+opts_chunk$set(warning = FALSE, message = FALSE, fig.pos = "h")
+```
+
+# Introduction
+We love rmarkdown. In practice, however, we often have specific customization requirements for reporting of reproducible research. Some of these are universal, such as company logo or letterhead, contact info and so on. 
+
+We created this `memor` package to allow for easier customization of `LaTeX`-based documents combining text and results from R. This document is produced using the following `YAML` header. Note that in this document, we are using the `Libertine` font, which can be enabled by setting `libertine: true`.
+
+```
+---
+title: "memor: Customizable LaTeX Template for rmarkdown"
+author: Hao Zhu, Timothy Tsai, Thomas Travison
+date: "`r Sys.Date()`"
+output: 
+  memor::pdf_memo:
+    logo: "memor.png"
+    logo_height: 2.5cm
+    use_profile: false
+    company:
+      name: Institute for Aging Research
+      address: 1200 Centre St, Boston, MA
+      phone: 617-971-5386
+      email: stats@hsl.harvard.edu
+    confidential: false
+    watermark: Open Access
+    libertine: true
+---
+```
+
+# Installation
+```{r, eval=FALSE}
+install.packages("memor")
+
+# For dev version
+devtools::install_github("hebrewseniorlife/memor")
+```
+
+# Getting Started
+Here are the list of options that is available in `memor`. As with the default `rmarkdown` template, not all need be specified. At the same time, it can also take all the other options from `rmarkdown::pdf_document`, such as `keet_tex`, `includes`, etc.
+ 
+```
+output: 
+  memor::pdf_memo:
+    use_profile: false
+    logo: "logo.png"
+    company: 
+      name: Your company's name
+      address: Your address
+      phone: 888.888.8888
+      email: your_email@email.com
+    short_title: short title for page header
+    watermark: (optional) watermark
+    confidential: true
+    libertine: false
+    chinese: false
+    logo_height: 1.2cm
+    watermark_color: gray
+    footer_on_first_page: true
+    toc: false
+    lot: false
+    lof: false
+    number_sections: true
+    latex_engine: xelatex
+```
+
+In the interest of reducing the length of 'yaml' headers and allowing for standardization within teams, we have developed a mechanism that allows one to save one's configuration or "profile" in an isolated file, which can be reused for other reports and shared with colleagues. During the process of rendering, information saved in the profile file will be automatically pulled and used to generate the final document (but information defined in local environment will be used with priority). 
+
+To better facilitate this process, we created a RStudio Addin to help you quickly locate the file. This addin does nothing but to open up the `~/memor-profile.yaml` file in your home directory (if this file doesn't exist, it will create one). Note that if you have a profile but you don't want to use the profile for certain document, you can disable this behavior by setting the `use_profile` option to `false.` Furthermore, if you are customizing the location of the profile file using the `memor_profile` option, which can be specified in a `.Rprofile`, so your group can put this file in a shared space. 

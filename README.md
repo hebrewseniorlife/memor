@@ -13,7 +13,10 @@ This package is intended for data scientists, statisticians, and allied scientis
 
 
 # Installation
-```{r}
+```
+install.packages("memor")
+
+# For dev version
 devtools::install_github("hebrewseniorlife/memor")
 ```
 
@@ -31,8 +34,10 @@ output:
       phone: 888.888.8888
       email: your_email@email.com
     short_title: short title
-    watermark: Top Secret
-    confidential: true
+    watermark: (optional) watermark
+    confidential: false
+    libertine: false
+    chinese: false
     logo_height: 1.2cm
     watermark_color: gray
     footer_on_first_page: true

@@ -190,6 +190,12 @@ $endfor$
 \usepackage{lastpage} % access number of last page for numbering in margin
 
 %% fonts setup
+$if(libertine)$
+\usepackage{libertine}
+$endif$
+$if(chinese)$
+\usepackage{ctex}
+$endif$
 \usepackage{gensymb} %degree symbol
 
 \usepackage{array}

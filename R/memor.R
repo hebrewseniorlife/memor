@@ -13,6 +13,10 @@
 #' its color via `watermark_color`.
 #' @param confidential T/F value for whether a red confidential sign will
 #' be printed.
+#' @param libertine T/F. Libertine is a collection of open fonts for western
+#' languages. We found it fits this template quite well. Default is `FALSE` 
+#' though we highly recommend you to turn it on.
+#' @param chinese T/F for Chinese language support. Default is `FALSE`.
 #' @param logo_height Height of the logo image. This logo image will be scaled
 #' to height and the default height is 1.2cm.
 #' @param watermark_color Color for the watermark text. Default is "gray".
@@ -31,22 +35,21 @@
 #' @importFrom rmarkdown pdf_document pandoc_variable_arg
 #' @import knitr
 #' 
-#' @examples
-#' \dontrun{
-#' library(rmarkdown)
-#'
-#' render("input.Rmd", memor::pdf_memo())
-#' }
+#' @examples library(rmarkdown)
+#  example <- system.file("example/demo.Rmd", package = "memor")
+#  render(example, memor::pdf_memo())
+#' 
 #' @export
 pdf_memo <- function(use_profile = TRUE, 
                      logo = NULL, company = NULL, short_title = NULL, 
                      watermark = NULL, confidential = FALSE, 
+                     libertine = TRUE, chinese = FALSE,
                      logo_height = "1.2cm", watermark_color = "gray",
                      footer_on_first_page = TRUE, 
                      toc = FALSE, lot = FALSE, lof = FALSE, 
                      number_sections = TRUE, latex_engine = "xelatex", ...) {
   if (use_profile) {
-    profile_file <- getOption(memor_profile, "~/memor-profile.yaml")
+    profile_file <- getOption("memor_profile", "~/memor-profile.yaml")
     profile_yaml <- try(yaml::read_yaml(profile_file), silent = TRUE)
     if (!class(profile_yaml) == "try-error") {
       profile_compare <- list(
@@ -54,6 +57,8 @@ pdf_memo <- function(use_profile = TRUE,
         short_title = list(short_title, NULL), 
         watermark = list(watermark, NULL), 
         confidential = list(confidential, FALSE), 
+        libertine = list(libertine, FALSE),
+        chinese = list(chinese, FALSE),
         logo_height = list(logo_height, "1.2cm"), 
         watermark_color = list(watermark_color, "gray"),
         footer_on_first_page = list(footer_on_first_page, TRUE), 
@@ -105,6 +110,14 @@ pdf_memo <- function(use_profile = TRUE,
   
   if (confidential) {
     memor_args <- c(memor_args, pandoc_variable_arg("confidential", "yes"))
+  }
+  
+  if (libertine) {
+    memor_args <- c(memor_args, pandoc_variable_arg("libertine", "yes"))
+  }
+  
+  if (chinese) {
+    memor_args <- c(memor_args, pandoc_variable_arg("chinese", "yes"))
   }
   
   if (!is.null(watermark)) {

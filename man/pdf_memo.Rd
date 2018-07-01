@@ -6,9 +6,10 @@
 \usage{
 pdf_memo(use_profile = TRUE, logo = NULL, company = NULL,
   short_title = NULL, watermark = NULL, confidential = FALSE,
-  logo_height = "1.2cm", watermark_color = "gray",
-  footer_on_first_page = TRUE, toc = FALSE, lot = FALSE, lof = FALSE,
-  number_sections = TRUE, latex_engine = "xelatex", ...)
+  libertine = TRUE, chinese = FALSE, logo_height = "1.2cm",
+  watermark_color = "gray", footer_on_first_page = TRUE, toc = FALSE,
+  lot = FALSE, lof = FALSE, number_sections = TRUE,
+  latex_engine = "xelatex", ...)
 }
 \arguments{
 \item{use_profile}{T/F value for whether the user profile in
@@ -29,6 +30,12 @@ its color via \code{watermark_color}.}
 
 \item{confidential}{T/F value for whether a red confidential sign will
 be printed.}
+
+\item{libertine}{T/F. Libertine is a collection of open fonts for western
+languages. We found it fits this template quite well. Default is \code{FALSE}
+though we highly recommend you to turn it on.}
+
+\item{chinese}{T/F for Chinese language support. Default is \code{FALSE}.}
 
 \item{logo_height}{Height of the logo image. This logo image will be scaled
 to height and the default height is 1.2cm.}
@@ -57,9 +64,6 @@ See ?rmarkdown::pdf_document for details}
 Memor PDF Memo Template
 }
 \examples{
-\dontrun{
 library(rmarkdown)
 
-render("input.Rmd", memor::pdf_memo())
-}
 }
