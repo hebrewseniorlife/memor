@@ -40,10 +40,10 @@ output:
     logo_height: 2.5cm
     use_profile: false
     company:
-      name: Institute for Aging Research
-      address: 1200 Centre St, Boston, MA
-      phone: 617-971-5386
-      email: stats@hsl.harvard.edu
+      name: Best Company in the world
+      address: 100 Awesome road
+      phone: 888.888.8888
+      email: yourname@BestCompany.com
     confidential: false
     watermark: Open Access
     libertine: true

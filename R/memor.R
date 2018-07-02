@@ -35,15 +35,18 @@
 #' @importFrom rmarkdown pdf_document pandoc_variable_arg
 #' @import knitr
 #' 
-#' @examples library(rmarkdown)
+#' @examples 
+#' \dontrun{
+#' library(rmarkdown)
 #'  example <- system.file("example/demo.Rmd", package = "memor")
 #'  render(example, memor::pdf_memo())
+#' }
 #' 
 #' @export
 pdf_memo <- function(use_profile = TRUE, 
                      logo = NULL, company = NULL, short_title = NULL, 
                      watermark = NULL, confidential = FALSE, 
-                     libertine = TRUE, chinese = FALSE,
+                     libertine = FALSE, chinese = FALSE,
                      logo_height = "1.2cm", watermark_color = "gray",
                      footer_on_first_page = TRUE, 
                      toc = FALSE, lot = FALSE, lof = FALSE, 

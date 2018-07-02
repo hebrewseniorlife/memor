@@ -219,7 +219,12 @@ See ?rmarkdown::pdf_document for details</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='no'>rmarkdown</span>)</div></pre>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='fu'>library</span>(<span class='no'>rmarkdown</span>)
+ <span class='no'>example</span> <span class='kw'>&lt;-</span> <span class='fu'>system.file</span>(<span class='st'>"example/demo.Rmd"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"memor"</span>)
+ <span class='fu'><a href='http://www.rdocumentation.org/packages/rmarkdown/topics/render'>render</a></span>(<span class='no'>example</span>, <span class='kw pkg'>memor</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/memor/topics/pdf_memo'>pdf_memo</a></span>())
+<span class='co'># }</span><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

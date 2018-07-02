@@ -1,0 +1,246 @@
+\documentclass[11pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[top=0.5in, bottom=.4in, left = 1in, right=1in, includeheadfoot]{geometry}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Hao Zhu, Timothy Tsai, Thomas Travison},
+            pdftitle={memor: Customizable LaTeX Template for rmarkdown},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+% \setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{5}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{memor: Customizable LaTeX Template for rmarkdown}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Hao Zhu, Timothy Tsai, Thomas Travison}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2018-07-02}
+
+
+%% --------- above is almost identical with default rmarkdown
+%% document formatting
+ % colors for tables and text
+\usepackage{ragged2e} % justifying text
+\usepackage{setspace} % spacing commands, automatically makes captions single-spaced
+  \setstretch{1.2} \frenchspacing
+\usepackage{lastpage} % access number of last page for numbering in margin
+
+%% fonts setup
+\usepackage{libertine}
+\usepackage{gensymb} %degree symbol
+
+\usepackage{array}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{makecell}
+
+\usepackage[hang]{footmisc}
+
+%% tables and figures
+
+% include section number in figure and table numbers, renew in each section
+\usepackage{chngcntr}
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+
+\robustify\tnote
+
+% table/figure captions (titles and legends)
+\usepackage{caption}
+\DeclareCaptionFormat{llap}{\llap{#1#2}#3\par} % table / figure number in left margin
+\DeclareCaptionLabelSeparator{spc}{\hspace{.075 in}} % space between table number and caption
+\captionsetup{font={color=blue, sf}, singlelinecheck=off, margin= 15pt, skip=4pt, size=small, labelfont={sc, sf}, format=llap, labelsep=spc,singlelinecheck=no} % same font as headers
+
+
+\makeatletter
+\let\runtitle\@title
+\newcommand{\rundate}{}
+\makeatother
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rhead{\footnotesize \nouppercase{\sc \runtitle} \hspace{.025 in} \hspace{.055 in} \thepage \hspace{.01 in} / \pageref*{LastPage}}
+
+   
+      \renewcommand{\footrulewidth}{0.5pt}
+   \cfoot{\footnotesize
+   Best Company in the world \hspace{.025 in} $\cdot$ \hspace{.05 in} 100 Awesome road \hspace{.025 in} $\cdot$ \hspace{.05 in} 888.888.8888 \hspace{.025 in} $\cdot$ \hspace{.05 in} yourname@BestCompany.com
+   }
+   
+\fancypagestyle{firststyle}
+{
+   \fancyhf{}
+      \renewcommand{\footrulewidth}{0.5pt}
+   \cfoot{\footnotesize
+   Best Company in the world \hspace{.025 in} $\cdot$ \hspace{.05 in} 100 Awesome road \hspace{.025 in} $\cdot$ \hspace{.05 in} 888.888.8888 \hspace{.025 in} $\cdot$ \hspace{.05 in} yourname@BestCompany.com
+   }
+   }
+
+\setlength\parindent{0pt}
+
+\usepackage{titlesec}
+\titleformat*{\section}{\sc \large \color[rgb]{0,0,0}}
+\titleformat*{\subsection}{\large}
+\titleformat*{\subsubsection}{\normalsize}
+\renewcommand{\maketitlehooka}{}
+\titlespacing\section{0pt}{8pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{6pt plus 2pt minus 2pt}{-2pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{2pt plus 2pt minus 2pt}{-3pt plus 2pt minus 2pt}
+
+
+% set up title page
+\pretitle{
+% \vskip 5em 
+
+\begin{flushleft}\LARGE}
+
+\posttitle{\end{flushleft}}
+
+\preauthor{\par\begin{flushleft}\large\vskip -.5em}
+\postauthor{\end{flushleft}}
+
+\predate{\par\begin{flushleft}\large\vskip -1em}
+\postdate{\end{flushleft}  }
+
+\makeatletter
+\def\@seccntformat#1{\llap{\csname the#1\endcsname \hspace{.075 in}}}
+\makeatother
+
+% suppress chapter in section numbering
+\renewcommand*\thesection{\arabic{section}}
+
+% spacing of bulleted lists
+\usepackage{enumitem} %control spacing of enumerated items
+\setlist[itemize]{noitemsep, topsep=0pt}
+
+%% remove 'abstract' title, justify text
+\renewcommand{\abstractname}{\headingfont \large}
+\renewenvironment{abstract} {\abstractname \justifying \rm \normalsize }
+
+\newlength\tbspace
+\setlength\tbspace{.25in}
+
+% units.
+%\usepackage{units}
+
+
+\def\tightlist{}
+
+
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\begin{document}
+\maketitle
+
+\thispagestyle{firststyle}
+
+
+
+\section{Introduction}\label{introduction}
+
+We love rmarkdown. In practice, however, we often have specific
+customization requirements for reporting of reproducible research. Some
+of these are universal, such as company logo or letterhead, contact info
+and so on.
+
+We created this \texttt{memor} package to allow for easier customization
+of \texttt{LaTeX}-based documents combining text and results from R.
+This document is produced using the following \texttt{YAML} header.
+
+\begin{verbatim}
+---
+title: "memor: Customizable LaTeX Template for rmarkdown"
+author: Hao Zhu, Timothy Tsai, Thomas Travison
+date: "2018-07-02"
+output: 
+  memor::pdf_memo:
+    logo: "memor.png"
+    logo_height: 2.5cm
+    use_profile: false
+    company:
+      name: Institute for Aging Research
+      address: 1200 Centre St, Boston, MA
+      phone: 617-971-5386
+      email: stats@hsl.harvard.edu
+    confidential: false
+    watermark: Open Access
+    libertine: true
+---
+\end{verbatim}
+
+\end{document}
