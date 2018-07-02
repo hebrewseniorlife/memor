@@ -36,8 +36,8 @@
 #' @import knitr
 #' 
 #' @examples library(rmarkdown)
-#  example <- system.file("example/demo.Rmd", package = "memor")
-#  render(example, memor::pdf_memo())
+#'  example <- system.file("example/demo.Rmd", package = "memor")
+#'  render(example, memor::pdf_memo())
 #' 
 #' @export
 pdf_memo <- function(use_profile = TRUE, 

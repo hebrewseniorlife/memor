@@ -23,8 +23,6 @@ vignette: >
 
 ```{r setup, include = FALSE}
 library(knitr)
-library(kableExtra)
-library(ggplot2)
 opts_chunk$set(warning = FALSE, message = FALSE, fig.pos = "h")
 ```
 

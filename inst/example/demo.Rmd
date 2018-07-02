@@ -19,8 +19,6 @@ output:
 
 ```{r setup, include = FALSE}
 library(knitr)
-library(kableExtra)
-library(ggplot2)
 opts_chunk$set(warning = FALSE, message = FALSE, fig.pos = "h")
 ```
 
@@ -48,16 +46,4 @@ output:
     watermark: Open Access
     libertine: true
 ---
-```
-
-# Tables & Figures 
-Here are how tables and figures looks like in this template. Caption color is controlled by `citecolor`.
-```{r}
-kable(mtcars[1:5, 1:5], booktabs = T, caption = "A Table") %>%
-  kable_styling(latex_options = c("striped", "HOLD_position"), position = "left")
-```
-
-```{r, fig.cap="A Plot", out.extra=""}
-ggplot(mtcars, aes(x = mpg, y = wt)) +
-  geom_point()
 ```

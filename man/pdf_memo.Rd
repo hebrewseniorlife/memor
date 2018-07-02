@@ -65,5 +65,7 @@ Memor PDF Memo Template
 }
 \examples{
 library(rmarkdown)
+ example <- system.file("example/demo.Rmd", package = "memor")
+ render(example, memor::pdf_memo())
 
 }
