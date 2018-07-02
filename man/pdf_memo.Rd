@@ -6,7 +6,7 @@
 \usage{
 pdf_memo(use_profile = TRUE, logo = NULL, company = NULL,
   short_title = NULL, watermark = NULL, confidential = FALSE,
-  libertine = TRUE, chinese = FALSE, logo_height = "1.2cm",
+  libertine = FALSE, chinese = FALSE, logo_height = "1.2cm",
   watermark_color = "gray", footer_on_first_page = TRUE, toc = FALSE,
   lot = FALSE, lof = FALSE, number_sections = TRUE,
   latex_engine = "xelatex", ...)
