@@ -225,10 +225,14 @@ $endif$
 
 % table/figure captions (titles and legends)
 \usepackage{caption}
+$if(fancy_captions)$
 \DeclareCaptionFormat{llap}{\llap{#1#2}#3\par} % table / figure number in left margin
 \DeclareCaptionLabelSeparator{spc}{\hspace{.075 in}} % space between table number and caption
 \captionsetup{font={color=$if(citecolor)$$citecolor$$else$blue$endif$, sf}, singlelinecheck=off, margin= 15pt, skip=4pt, size=small, labelfont={sc, sf}, format=llap, labelsep=spc,singlelinecheck=no} % same font as headers
-
+$else$
+% otherwise just 
+\captionsetup{font=small, labelfont={sc, bf}}
+$endif$
 
 \makeatletter
 \let\runtitle\@title

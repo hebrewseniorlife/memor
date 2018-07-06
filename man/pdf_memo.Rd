@@ -8,8 +8,8 @@ pdf_memo(use_profile = TRUE, logo = NULL, company = NULL,
   short_title = NULL, watermark = NULL, confidential = FALSE,
   libertine = FALSE, chinese = FALSE, logo_height = "1.2cm",
   watermark_color = "gray", footer_on_first_page = TRUE, toc = FALSE,
-  lot = FALSE, lof = FALSE, number_sections = TRUE,
-  latex_engine = "xelatex", ...)
+  lot = FALSE, lof = FALSE, fancy_captions = TRUE,
+  number_sections = TRUE, latex_engine = "xelatex", ...)
 }
 \arguments{
 \item{use_profile}{T/F value for whether the user profile in
@@ -52,7 +52,10 @@ for details}
 
 \item{lof}{T/F value for list of figures.}
 
-\item{number_sections}{logical value for wether sections should be numbered.
+\item{fancy_captions}{T/F value for whether to apply special formatting to
+captions.}
+
+\item{number_sections}{T/F value for whether sections should be numbered.
 See ?rmarkdown::pdf_document for details}
 
 \item{latex_engine}{LaTeX engine. See ?rmarkdown::pdf_document for details}
