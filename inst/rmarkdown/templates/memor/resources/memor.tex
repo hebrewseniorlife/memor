@@ -214,10 +214,12 @@ $endif$
 
 %% tables and figures
 
+$if(numbersections)$
 % include section number in figure and table numbers, renew in each section
 \usepackage{chngcntr}
 \counterwithin{table}{section}
 \counterwithin{figure}{section}
+$endif$
 
 \robustify\tnote
 
