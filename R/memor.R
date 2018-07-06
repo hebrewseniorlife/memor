@@ -28,6 +28,8 @@
 #' @param lof T/F value for list of figures.
 #' @param number_sections T/F value for whether sections should be numbered.
 #' See ?rmarkdown::pdf_document for details
+#' @param fancy_captions T/F value for whether to apply special formatting to
+#' captions.
 #' @param latex_engine LaTeX engine. See ?rmarkdown::pdf_document for details
 #' @param ... other options to be passed to rmarkdown::pdf_document. See
 #' ?rmarkdown::pdf_document for details
@@ -43,30 +45,32 @@
 #' }
 #' 
 #' @export
-pdf_memo <- function(use_profile = TRUE, 
-                     logo = NULL, company = NULL, short_title = NULL, 
-                     watermark = NULL, confidential = FALSE, 
+pdf_memo <- function(use_profile = TRUE,
+                     logo = NULL, company = NULL, short_title = NULL,
+                     watermark = NULL, confidential = FALSE,
                      libertine = FALSE, chinese = FALSE,
                      logo_height = "1.2cm", watermark_color = "gray",
-                     footer_on_first_page = TRUE, 
-                     toc = FALSE, lot = FALSE, lof = FALSE, 
+                     footer_on_first_page = TRUE,
+                     toc = FALSE, lot = FALSE, lof = FALSE,
+                     fancy_captions = TRUE,
                      number_sections = TRUE, latex_engine = "xelatex", ...) {
   if (use_profile) {
     profile_file <- getOption("memor_profile", "~/memor-profile.yaml")
     profile_yaml <- try(yaml::read_yaml(profile_file), silent = TRUE)
     if (!class(profile_yaml) == "try-error") {
       profile_compare <- list(
-        logo = list(logo, NULL), company = list(company, NULL), 
-        short_title = list(short_title, NULL), 
-        watermark = list(watermark, NULL), 
-        confidential = list(confidential, FALSE), 
+        logo = list(logo, NULL), company = list(company, NULL),
+        short_title = list(short_title, NULL),
+        watermark = list(watermark, NULL),
+        confidential = list(confidential, FALSE),
         libertine = list(libertine, FALSE),
         chinese = list(chinese, FALSE),
-        logo_height = list(logo_height, "1.2cm"), 
+        logo_height = list(logo_height, "1.2cm"),
         watermark_color = list(watermark_color, "gray"),
-        footer_on_first_page = list(footer_on_first_page, TRUE), 
-        toc = list(toc, FALSE), lot = list(lot, FALSE), lof = list(lof, FALSE), 
-        number_sections = list(number_sections, TRUE), 
+        footer_on_first_page = list(footer_on_first_page, TRUE),
+        toc = list(toc, FALSE), lot = list(lot, FALSE), lof = list(lof, FALSE),
+        number_sections = list(number_sections, TRUE),
+        fancy_captions = list(fancy_captions, TRUE),
         latex_engine = list(latex_engine, "xelatex")
       )
       changed_items <- lapply(profile_compare, function(x){
@@ -130,6 +134,10 @@ pdf_memo <- function(use_profile = TRUE,
   
   if (lot) memor_args <- c(memor_args, pandoc_variable_arg("lot", "yes"))
   if (lof) memor_args <- c(memor_args, pandoc_variable_arg("lof", "yes"))
+  
+  if (fancy_captions) {
+    memor_args <- c(memor_args, pandoc_variable_arg("fancy_captions", "yes"))
+  }
   
   template <- system.file("rmarkdown/templates/memor/resources/memor.tex",
                           package = "memor")
