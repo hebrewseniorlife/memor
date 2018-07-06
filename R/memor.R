@@ -103,7 +103,7 @@ pdf_memo <- function(use_profile = TRUE,
   }
   
   if (!is.null(short_title)) {
-    memor_args <- c(memor_args, pandoc_variable_arg("shotr_title", short_title))
+    memor_args <- c(memor_args, pandoc_variable_arg("short_title", short_title))
   }
   
   if (footer_on_first_page) {
