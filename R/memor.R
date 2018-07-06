@@ -26,7 +26,7 @@
 #' for details
 #' @param lot T/F value for list of tables.
 #' @param lof T/F value for list of figures.
-#' @param number_sections logical value for wether sections should be numbered.
+#' @param number_sections T/F value for whether sections should be numbered.
 #' See ?rmarkdown::pdf_document for details
 #' @param latex_engine LaTeX engine. See ?rmarkdown::pdf_document for details
 #' @param ... other options to be passed to rmarkdown::pdf_document. See

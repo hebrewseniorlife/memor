@@ -52,7 +52,6 @@ for details}
 
 \item{lof}{T/F value for list of figures.}
 
-\item{number_sections}{logical value for wether sections should be numbered.
 See ?rmarkdown::pdf_document for details}
 
 \item{latex_engine}{LaTeX engine. See ?rmarkdown::pdf_document for details}
