@@ -5,7 +5,8 @@ Authors@R: c(
     person("Hao", "Zhu", email = "haozhu233@gmail.com", role = c("aut", "cre"), 
     comment = c(ORCID = '0000-0002-3386-6076')),
     person("Timothy", "Tsai", email = "TimothyTsai@hsl.harvard.edu", role = "aut"),
-    person("Thomas", "Travison", email = "tgt@hsl.harvard.edu", role = "aut")
+    person("Thomas", "Travison", email = "tgt@hsl.harvard.edu", role = "aut"),
+    person("Mikhail", "Popov", role = "ctb")
     )
 Description: A 'rmarkdown' template that supports company logo, contact info, 
     watermarks and more. Currently restricted to 'Latex'/'Markdown'; a similar 
