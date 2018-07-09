@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">memor</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.1</span>
       </span>
     </div>
 
@@ -125,10 +125,10 @@
 
     <pre class="usage"><span class='fu'>pdf_memo</span>(<span class='kw'>use_profile</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>logo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>company</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>short_title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>watermark</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>confidential</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>libertine</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>chinese</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>logo_height</span> <span class='kw'>=</span> <span class='st'>"1.2cm"</span>,
+  <span class='kw'>libertine</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>chinese</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>logo_height</span> <span class='kw'>=</span> <span class='st'>"1.2cm"</span>,
   <span class='kw'>watermark_color</span> <span class='kw'>=</span> <span class='st'>"gray"</span>, <span class='kw'>footer_on_first_page</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>toc</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>lot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>lof</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>number_sections</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>latex_engine</span> <span class='kw'>=</span> <span class='st'>"xelatex"</span>, <span class='no'>...</span>)</pre>
+  <span class='kw'>lot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>lof</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>fancy_captions</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>number_sections</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>latex_engine</span> <span class='kw'>=</span> <span class='st'>"xelatex"</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -202,8 +202,13 @@ for details</p></td>
       <td><p>T/F value for list of figures.</p></td>
     </tr>
     <tr>
+      <th>fancy_captions</th>
+      <td><p>T/F value for whether to apply special formatting to
+captions.</p></td>
+    </tr>
+    <tr>
       <th>number_sections</th>
-      <td><p>logical value for wether sections should be numbered.
+      <td><p>T/F value for whether sections should be numbered.
 See ?rmarkdown::pdf_document for details</p></td>
     </tr>
     <tr>
