@@ -1,3 +1,13 @@
+# memor 0.1.1 
+
+* Made section number in tables & figures optional (#2)
+
+* Made special caption formatting optional & fix short titles (#3)
+
+* Fix subtitle (#4)
+
+
+
 # memor 0.1.0 
 
 * Removed some unnecessary latex packages
