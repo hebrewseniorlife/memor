@@ -2,6 +2,7 @@
 title: "memor: Customizable HTML template for rmarkdown"
 output:
   memor::html_memo:
+    use_profile: false
     logo: "memor.png"
     logo_height: 120
     # css: style.css
@@ -30,6 +31,7 @@ We created this `memor` package to allow for easier customization of `LaTeX`-bas
 title: "memor: Customizable HTML template for rmarkdown"
 output:
   memor::html_memo:
+    use_profile: False
     logo: "memor.png"
     logo_height: 120
     toc: True

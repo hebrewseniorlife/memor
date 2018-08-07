@@ -4,24 +4,37 @@
 #' @export
 html_memo <- function(style = NULL,
                       use_profile = TRUE,
-                      logo = NULL, company = NULL, short_title = NULL,
-                      watermark = NULL, confidential = FALSE,
-                      libertine = FALSE, chinese = FALSE,
-                      logo_height = 128, watermark_color = "gray",
-                      footer_on_first_page = TRUE,
-                      # toc = FALSE, lot = FALSE, lof = FALSE,
-                      fancy_captions = TRUE,
-                      number_sections = TRUE, ...) {
+                      logo = NULL, company = NULL,
+                      logo_height = 128,
+                      ...) {
   
-  # memor_args <- c()
-  
-  # if (!is.null(title))
-  #   memor_args <- c(memor_args, pandoc_variable_arg("title", title))
-  
-  # if (!is.null(logo)) {
-  #   memor_args <- c(memor_args, pandoc_variable_arg("logo", logo),
-  #                   pandoc_variable_arg("logo_height", logo_height))
-  # }
+  if (use_profile) {
+    profile_file <- getOption("memor_profile", "~/memor-profile.yaml")
+    profile_yaml <- try(yaml::read_yaml(profile_file), silent = TRUE)
+    if (!class(profile_yaml) == "try-error") {
+      profile_compare <- list(
+        logo = list(logo, NULL), 
+        company = list(company, NULL),
+        logo_height = list(logo_height, "128"),
+        style = list(style, NULL)
+      )
+      changed_items <- lapply(profile_compare, function(x){
+        !identical(x[[1]], x[[2]])
+      })
+      changed_items <- names(changed_items)[changed_items == T]
+      
+      profile_yaml_names <- names(profile_yaml)
+      profile_yaml_names <- profile_yaml_names[!profile_yaml_names %in% 
+                                                 changed_items]
+      profile_yaml <- profile_yaml[profile_yaml_names]
+      
+      if (length(profile_yaml) != 0) {
+        for (i in 1:length(profile_yaml)) {
+          assign(profile_yaml_names[i], profile_yaml[[i]])
+        }
+      }
+    }
+  }
   
   if (!is.null(company)) {
     if (is.list(company) && length(company) > 1) {
@@ -30,39 +43,6 @@ html_memo <- function(style = NULL,
     }
     # memor_args <- c(memor_args, pandoc_variable_arg("company", company))
   }
-  
-  # if (!is.null(short_title)) {
-  #   memor_args <- c(memor_args, pandoc_variable_arg("short_title", short_title))
-  # }
-  
-  # if (footer_on_first_page) {
-  # memor_args <- c(memor_args,
-  # pandoc_variable_arg("footer_on_first_page", "yes"))
-  # }
-  
-  # if (confidential) {
-  # memor_args <- c(memor_args, pandoc_variable_arg("confidential", "yes"))
-  # }
-  
-  # if (libertine) {
-  # memor_args <- c(memor_args, pandoc_variable_arg("libertine", "yes"))
-  # }
-  
-  # if (chinese) {
-  # memor_args <- c(memor_args, pandoc_variable_arg("chinese", "yes"))
-  # }
-  
-  # if (!is.null(watermark)) {
-  # memor_args <- c(memor_args, pandoc_variable_arg("watermark", watermark),
-  # pandoc_variable_arg("watermark_color", watermark_color))
-  # }
-  
-  # if (lot) memor_args <- c(memor_args, pandoc_variable_arg("lot", "yes"))
-  # if (lof) memor_args <- c(memor_args, pandoc_variable_arg("lof", "yes"))
-  
-  # if (fancy_captions) {
-  # memor_args <- c(memor_args, pandoc_variable_arg("fancy_captions", "yes"))
-  # }
   
   config <- html_document(
     includes = includes(
@@ -81,11 +61,10 @@ createHeader <- function(logo, logo_height = 128) {
     '<div class="memor_logo" style="text-align:end;padding-top:25px">
     <img src="data:image/png;base64,',
     base64enc::base64encode(logo),
-    sprintf('" style="height:%dpx" /></div>', logo_height))#,
+    sprintf('" style="height:%dpx" /></div>', logo_height))
   
   temp_header = tempfile()
   write(text, temp_header)
-  # system(paste0("cat ", temp_header))
   
   return(temp_header)
 }
