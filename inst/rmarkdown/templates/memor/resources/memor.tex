@@ -1,4 +1,5 @@
 \documentclass[$if(fontsize)$$fontsize$$else$11pt,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
 $if(fontfamily)$
 \usepackage{$fontfamily$}
 $else$
@@ -8,6 +9,7 @@ $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
 $endif$
+
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -20,11 +22,11 @@ $endif$
 \else % if luatex or xelatex
   \ifxetex
     \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
+    \usepackage{xltxtra, xunicode}
   \else
     \usepackage{fontspec}
   \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
   \newcommand{\euro}{€}
 $if(mainfont)$
     \setmainfont{$mainfont$}
@@ -39,6 +41,7 @@ $if(mathfont)$
     \setmathfont(Digits,Latin,Greek){$mathfont$}
 $endif$
 \fi
+
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
@@ -190,7 +193,6 @@ $if(chinese)$
 \usepackage{ctex}
 $endif$
 \usepackage{gensymb} %degree symbol
-
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{xcolor}
@@ -202,7 +204,6 @@ $endif$
 \usepackage{threeparttable}
 \usepackage{threeparttablex}
 \usepackage{makecell}
-
 \usepackage[hang]{footmisc}
 
 %% tables and figures
@@ -217,15 +218,9 @@ $endif$
 \robustify\tnote
 
 % table/figure captions (titles and legends)
-\usepackage{caption}
-$if(fancy_captions)$
-\DeclareCaptionFormat{llap}{\llap{#1#2}#3\par} % table / figure number in left margin
-\DeclareCaptionLabelSeparator{spc}{\hspace{.075 in}} % space between table number and caption
-\captionsetup{font={color=$if(citecolor)$$citecolor$$else$blue$endif$, sf}, singlelinecheck=off, margin= 15pt, skip=4pt, size=small, labelfont={sc, sf}, format=llap, labelsep=spc,singlelinecheck=no} % same font as headers
-$else$
-% otherwise just 
-\captionsetup{font=small, labelfont={sc, bf}}
-$endif$
+
+\usepackage[singlelinecheck=false]{caption} % left justify table captions
+\captionsetup{font={color=$if(tabcapcolor)$$tabcapcolor$$else$black$endif$, sf}, skip=$if(tabcapskip)$$tabcapskip$$else$4pt$endif$, size=small, labelfont=sf, labelsep = period} % color and spacing between caption and table proper
 
 \makeatletter
 \let\runtitle\@title

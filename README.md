@@ -21,7 +21,11 @@ devtools::install_github("hebrewseniorlife/memor")
 ```
 
 # Getting Started
-Here are the list of options that is available in `memor`. As with the default `rmarkdown` template, not all need be specified. At the same time, it can also take all the other options from `rmarkdown::pdf_document`, such as `keet_tex`, `includes`, etc.
+Here are the list of options that is available in `memor`. As with the default `rmarkdown` template, not all need be specified. At the same time, it can also take all the other options from `rmarkdown::pdf_document`, such as `keep_tex`, `includes`, etc.
+
+toc - Table of Contents  
+lot - List of Tables  
+lof - List of Figures  
  
 ```
 output: 
