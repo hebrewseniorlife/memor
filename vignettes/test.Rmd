@@ -1,13 +1,13 @@
 ---
 title: "Title"
 author: 
-- You Name
+- Your Name
 - Second Author
 fontfamily: helvet
 libertine: false
 mainfont: Arial
 date: "`r Sys.Date()`"
-tabcapcolor: "orange"
+tabcapcolor: "green"
 tabcapskip: 4pt
 output: 
   memor::pdf_memo
@@ -20,7 +20,7 @@ latex_engine: xelatex
 library(knitr)
 library(kableExtra)
 library(ggplot2)
-opts_chunk$set(warning = FALSE, message = FALSE)
+opts_chunk$set(warning = FALSE, message = FALSE, tidy = TRUE, width = 80)
 ```
 
 # Section 1
@@ -28,9 +28,13 @@ Here is a table
 
 ```{r}
 kable(mtcars[1:5, 1:5], booktabs = T, caption = "This is a table where the title is going to justify appropriately.") %>%
-  kable_styling(latex_options = c("striped", "HOLD_position"), position = "left") %>% footnote(general = "wahoops", threeparttable = TRUE, general_title = "")
+  kable_styling(latex_options = c("striped", "HOLD_position"), position = "left") %>% footnote(number = c("\\\\setstretch{.835} Here is a long footnote that we want to justify. It should be restricted to table width.", "And another one that we'll add to test it out. It should be restricted to table width."), threeparttable = TRUE, escape = F)
 ```
 
+```{r}
+kable(mtcars[1:5, 1:5], booktabs = T, caption = "This is a table where the title is going to justify appropriately.") %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"), position = "left") %>% add_footnote(c("Here is a long footnote that we want to justify. It should be restricted to table width.", "And another one that we'll add to test it out. It should be restricted to table width."), threeparttable = T, notation = "number")
+```
 
 \clearpage 
 
