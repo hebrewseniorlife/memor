@@ -103,7 +103,9 @@ $if(verbatim-in-note)$
 \usepackage{fancyvrb}
 \VerbatimFootnotes
 $endif$
-\usepackage{longtable,booktabs}
+
+% \usepackage{longtable,booktabs} - put above; tgt 20190905
+
 $if(graphics)$
 \usepackage{graphicx}
 \makeatletter
@@ -203,6 +205,7 @@ $endif$
 \usepackage{tabu}
 \usepackage{threeparttable}
 \usepackage{threeparttablex}
+\usepackage{longtable,booktabs} % tgt added 20190905
 \usepackage{makecell}
 \usepackage[hang]{footmisc}
 
