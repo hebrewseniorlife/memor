@@ -14,8 +14,6 @@ output:
 latex_engine: xelatex
 ---
 
-
-
 ```{r setup}
 library(knitr)
 library(kableExtra)
