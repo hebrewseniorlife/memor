@@ -1,0 +1,68 @@
+---
+title: "memor: Customizable HTML template for rmarkdown"
+output:
+  memor::html_memo:
+    use_profile: false
+    logo: "memor.png"
+    logo_height: 120
+    # css: style.css
+    toc: True
+    company:
+      name: Institute for Aging Research
+      address: 1200 Centre St, Boston, MA
+      phone: 617-971-5386
+      email: stats@hsl.harvard.edu
+---
+
+```{r setup, include = FALSE}
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+opts_chunk$set(warning = FALSE, message = FALSE, fig.pos = "h")
+```
+ 
+# Introduction
+We love rmarkdown. In practice, however, we often have specific customization requirements for reporting of reproducible research. Some of these are universal, such as company logo or letterhead, contact info and so on. 
+ 
+We created this `memor` package to allow for easier customization of `LaTeX`-based documents combining text and results from R. `memor` now also supports the same in `HTML`. This document is produced using the following `YAML` header. 
+ 
+```
+---
+title: "memor: Customizable HTML template for rmarkdown"
+output:
+  memor::html_memo:
+    use_profile: False
+    logo: "memor.png"
+    logo_height: 120
+    toc: True
+    company:
+      name: Institute for Aging Research
+      address: 1200 Centre St, Boston, MA
+      phone: 617-971-5386
+      email: stats@hsl.harvard.edu
+---
+```
+
+To use a custom theme, the `css` argument can be passed in the `YAML` header.
+```
+---
+title: "memor: Customizable HTML template for rmarkdown"
+output:
+  memor::html_memo:
+    ...
+    css: style.css
+    ...
+---
+```
+
+# Tables & Figures 
+Here are how tables and figures looks like in this template. Caption color is controlled by `citecolor`.
+```{r}
+kable(mtcars[1:5, 1:5], booktabs = T, caption = "A Table") %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"), position = "left")
+```
+
+```{r, fig.cap="A Plot", out.extra=""}
+ggplot(mtcars, aes(x = mpg, y = wt)) +
+  geom_point()
+```
