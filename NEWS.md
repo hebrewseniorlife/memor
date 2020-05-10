@@ -1,3 +1,6 @@
+# memor 0.2.2
+* Support for bibliographies when using recent versions of pandoc (#9, thanks @bearloga!)
+
 # memor 0.1.1 
 
 * Made section number in tables & figures optional (#2)
