@@ -13,7 +13,6 @@ output:
       phone: 617-971-5386
       email: stats@hsl.harvard.edu
     confidential: false
-    watermark: Open Access
     libertine: true
 vignette: >
   %\VignetteIndexEntry{Sample Document}
