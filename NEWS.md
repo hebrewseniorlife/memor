@@ -1,3 +1,6 @@
+# memor 0.2.4
+* adjust default settings for newer users (#15)
+
 # memor 0.2.2
 * Support for bibliographies when using recent versions of pandoc (#9, thanks @bearloga!)
 
