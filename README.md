@@ -36,7 +36,7 @@ output:
       name: Your company's name
       address: Your address
       phone: 888.888.8888
-      email: your_email@email.com
+      email: youremail@email.com
     short_title: short title
     watermark: (optional) watermark
     confidential: false
