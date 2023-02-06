@@ -1,7 +1,7 @@
 #' Memor PDF Memo Template
 #'
 #' @param use_profile T/F value for whether the user profile in 
-#' `~/memor-profile.yaml` will be loaded. Default is `TRUE`. 
+#' `~/memor-profile.yaml` will be loaded. Default is `FALSE`. 
 #' @param logo File path to Company logo file. The logo will be printed on
 #' the top right corner of the first page and the size will be adjusted to
 #' `logo_height`.
@@ -45,7 +45,7 @@
 #' }
 #' 
 #' @export
-pdf_memo <- function(use_profile = TRUE,
+pdf_memo <- function(use_profile = FALSE,
                      logo = NULL, company = NULL, short_title = NULL,
                      watermark = NULL, confidential = FALSE,
                      libertine = FALSE, chinese = FALSE,
