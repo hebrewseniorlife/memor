@@ -135,7 +135,7 @@ $endif$
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
-$if(numbersections)$
+$if(number_sections)$
 \setcounter{secnumdepth}{5}
 $else$
 \setcounter{secnumdepth}{0}
@@ -212,7 +212,7 @@ $endif$
 
 %% tables and figures
 
-$if(numbersections)$
+$if(number_sections)$
 % include section number in figure and table numbers, renew in each section
 \usepackage{chngcntr}
 \counterwithin{table}{section}
