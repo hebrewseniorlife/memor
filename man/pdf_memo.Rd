@@ -4,16 +4,30 @@
 \alias{pdf_memo}
 \title{Memor PDF Memo Template}
 \usage{
-pdf_memo(use_profile = TRUE, logo = NULL, company = NULL,
-  short_title = NULL, watermark = NULL, confidential = FALSE,
-  libertine = FALSE, chinese = FALSE, logo_height = "1.2cm",
-  watermark_color = "gray", footer_on_first_page = TRUE, toc = FALSE,
-  lot = FALSE, lof = FALSE, fancy_captions = TRUE,
-  number_sections = TRUE, latex_engine = "xelatex", ...)
+pdf_memo(
+  use_profile = FALSE,
+  logo = NULL,
+  company = NULL,
+  short_title = NULL,
+  watermark = NULL,
+  confidential = FALSE,
+  libertine = FALSE,
+  chinese = FALSE,
+  logo_height = "1.2cm",
+  watermark_color = "gray",
+  footer_on_first_page = TRUE,
+  toc = FALSE,
+  lot = FALSE,
+  lof = FALSE,
+  fancy_captions = TRUE,
+  number_sections = TRUE,
+  latex_engine = "xelatex",
+  ...
+)
 }
 \arguments{
 \item{use_profile}{T/F value for whether the user profile in
-\code{~/memor-profile.yaml} will be loaded. Default is \code{TRUE}.}
+\verb{~/memor-profile.yaml} will be loaded. Default is \code{FALSE}.}
 
 \item{logo}{File path to Company logo file. The logo will be printed on
 the top right corner of the first page and the size will be adjusted to
